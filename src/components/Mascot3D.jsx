@@ -1,36 +1,32 @@
-import { useGLTF, useAnimations } from "@react-three/drei";
-import { useEffect } from "react";
-import * as THREE from "three";
+import { useGLTF } from "@react-three/drei";
+import { useFrame } from "@react-three/fiber";
+import { useRef } from "react";
 
 export default function Mascot3D() {
-  const { scene, animations } = useGLTF("/boy-mascot.glb");
-  const { actions, names } = useAnimations(animations, scene);
+  const { scene } = useGLTF("/boy-mascot.glb");
+  const group = useRef();
 
-  useEffect(() => {
-    if (!actions || names.length === 0) return;
+  useFrame(({ clock }) => {
+    if (!group.current) return;
 
-    // Pick FIRST animation safely
-    const action = actions[names[0]];
-    console.log(names);
+    const t = clock.getElapsedTime();
 
-    if (!action) return;
+    // Gentle torso turn (presentation feel)
+    group.current.rotation.y = Math.sin(t * 0.6) * 0.15;
 
-    action.reset();
-    action.setLoop(THREE.LoopRepeat);
-    action.clampWhenFinished = false;
-    action.fadeIn(0.5);
-    action.play();
-
-    return () => action.fadeOut(0.3);
-  }, [actions, names]);
+    // VERY subtle settle motion (not nod, not float)
+    group.current.position.y = -1.2 + Math.sin(t * 0.8) * 0.02;
+  });
 
   return (
-    <primitive
-      object={scene}
-      scale={3.9}
-      position={[0, -1.7, 0]}
-      rotation={[0, -1.8, 0]}
-    />
+    <group
+      ref={group}
+      position={[0, -1.2, 0]}
+      rotation={[0, 0, 0]}
+      scale={2.2}
+    >
+      <primitive object={scene} />
+    </group>
   );
 }
 
