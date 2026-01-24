@@ -62,8 +62,7 @@ export default function HeroSection() {
               <OrbitControls
                 enableZoom={false}
                 enablePan={false}
-                autoRotate
-                autoRotateSpeed={1}
+                enableRotate={false}
               />
             </Canvas>
           )}
@@ -76,4 +75,4 @@ export default function HeroSection() {
   );
 }
 
-useGLTF.preload("/mascot.glb");
+useGLTF.preload("/boy-mascot.glb");
