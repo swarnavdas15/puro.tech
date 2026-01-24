@@ -3,7 +3,18 @@ import { OrbitControls, useGLTF } from "@react-three/drei";
 import { useEffect, useState } from "react";
 
 function Mascot3D() {
-  const { scene } = useGLTF("/boy-mascot.glb");
+  const { scene, animations } = useGLTF("/mascot.glb");
+  const { actions } = useAnimations(animations, scene);
+
+  useEffect(() => {
+    if (actions) {
+      const firstAction = Object.values(actions)[0];
+      firstAction?.reset().fadeIn(0.5).play();
+    }
+  }, [actions]);
+
+  return <primitive object={scene} scale={2.2} position={[0, -1.2, 0]} />;
+} = useGLTF("/boy-mascot.glb");
   return <primitive object={scene} scale={2.2} position={[0, -1.2, 0]} />;
 }
 
