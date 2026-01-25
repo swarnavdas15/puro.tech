@@ -20,6 +20,7 @@ export default function Hero() {
   const [fullText, setFullText] = useState(roniText);
   const [speaker, setSpeaker] = useState("roni");
   const [isFinal, setIsFinal] = useState(false);
+  const [canAnimate, setCanAnimate] = useState(false);
 
   // Typing reset key
   const [typingKey, setTypingKey] = useState(0);
@@ -31,15 +32,25 @@ export default function Hero() {
   // 🔒 Active hover guard
   const activeHoverRef = useRef(null);
 
+  useEffect(() => {
+  const t = setTimeout(() => {
+    setCanAnimate(true);
+  }, 700); 
+
+  return () => clearTimeout(t);
+}, []);
+
   /* Initial bubble delay */
   useEffect(() => {
-    const delay = setTimeout(() => setShowBubble(true), 800);
-    return () => clearTimeout(delay);
-  }, []);
+  if (!canAnimate) return;
+  const delay = setTimeout(() => setShowBubble(true), 800);
+  return () => clearTimeout(delay);
+}, [canAnimate]);
+
 
   /* Unified typewriter effect */
   useEffect(() => {
-    if (!showBubble) return;
+    if (!canAnimate || !showBubble) return;
     if (index >= fullText.length) return;
 
     const t = setTimeout(() => {
