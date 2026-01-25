@@ -1,35 +1,68 @@
+import { useState } from "react";
+
 const projects = [
   {
     id: 1,
     title: "Berkshire Hathaway",
     subtitle: "UI / UX Design",
-    image: "/projects/project-1.png",
+    image: "/projects/project-1.jpg",
     link: "#",
   },
   {
     id: 2,
     title: "Business Workflow",
     subtitle: "Web Application",
-    image: "/projects/project-2.png",
+    image: "/projects/project-2.jpg",
     link: "#",
   },
   {
     id: 3,
     title: "Mobile Banking App",
     subtitle: "App Design",
-    image: "/projects/project-3.png",
+    image: "/projects/project-3.jpg",
     link: "#",
   },
   {
     id: 4,
     title: "E-Commerce Platform",
     subtitle: "Brand + Web",
-    image: "/projects/project-4.png",
+    image: "/projects/project-4.jpg",
     link: "#",
   },
+    {
+    id: 5,
+    title: "E-Commerce Platform",
+    subtitle: "Brand + Web",
+    image: "/projects/project-4.jpg",
+    link: "#",
+  },
+    {
+    id: 6,
+    title: "E-Commerce Platform",
+    subtitle: "Brand + Web",
+    image: "/projects/project-4.jpg",
+    link: "#",
+  },
+    {
+    id: 7,
+    title: "E-Commerce Platform",
+    subtitle: "Brand + Web",
+    image: "/projects/project-4.jpg",
+    link: "#",
+  },
+  // add more to test
 ];
 
+
 export default function ProjectsSection() {
+  const MAX_VISIBLE = 6;
+  const [showAll, setShowAll] = useState(false);
+
+  const hasExtra = projects.length > MAX_VISIBLE;
+  const visibleProjects = showAll
+    ? projects
+    : projects.slice(0, MAX_VISIBLE);
+
   return (
     <section className="relative w-full py-24 bg-gradient-to-br from-black via-[#140406] to-black overflow-hidden">
       <div className="max-w-7xl mx-auto px-6">
@@ -46,14 +79,20 @@ export default function ProjectsSection() {
             </p>
           </div>
 
-          <button className="hidden md:inline-flex text-sm text-white border border-white/20 hover:border-white/40 transition px-6 py-2 rounded-full">
-            Show All
-          </button>
+          {/* Desktop Button */}
+          {hasExtra && (
+            <button
+              onClick={() => setShowAll((prev) => !prev)}
+              className="hidden md:inline-flex text-sm text-white border border-white/20 hover:border-white/40 transition px-6 py-2 rounded-full"
+            >
+              {showAll ? "Show Less" : "Show All"}
+            </button>
+          )}
         </div>
 
         {/* Projects Grid */}
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-2">
-          {projects.map((project) => (
+          {visibleProjects.map((project) => (
             <a
               key={project.id}
               href={project.link}
@@ -76,33 +115,33 @@ export default function ProjectsSection() {
               </div>
 
               {/* Red Go-To Link */}
-             <div
-  className="
-    absolute top-5 right-5 z-20
-    flex items-center justify-center
-    w-11 h-11
-    rounded-xl
-    bg-red-600/90 backdrop-blur-md
-    opacity-0 translate-y-2 translate-x-2
-    group-hover:opacity-100
-    group-hover:translate-x-0 group-hover:translate-y-0
-    transition-all duration-300 ease-out
-  "
->
-  <svg
-    width="18"
-    height="18"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="white"
-    strokeWidth="2"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-  >
-    <line x1="7" y1="17" x2="17" y2="7" />
-    <polyline points="7 7 17 7 17 17" />
-  </svg>
-</div>
+              <div
+                className="
+                  absolute top-5 right-5 z-20
+                  flex items-center justify-center
+                  w-11 h-11
+                  rounded-xl
+                  bg-red-600/90 backdrop-blur-md
+                  opacity-0 translate-y-2 translate-x-2
+                  group-hover:opacity-100
+                  group-hover:translate-x-0 group-hover:translate-y-0
+                  transition-all duration-300 ease-out
+                "
+              >
+                <svg
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="white"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <line x1="7" y1="17" x2="17" y2="7" />
+                  <polyline points="7 7 17 7 17 17" />
+                </svg>
+              </div>
 
               {/* Glow Effect */}
               <div
@@ -126,11 +165,16 @@ export default function ProjectsSection() {
         </div>
 
         {/* Mobile Button */}
-        <div className="mt-14 text-center md:hidden">
-          <button className="text-sm text-white border border-white/20 hover:border-white/40 transition px-6 py-2 rounded-full">
-            Show All
-          </button>
-        </div>
+        {hasExtra && (
+          <div className="mt-14 text-center md:hidden">
+            <button
+              onClick={() => setShowAll((prev) => !prev)}
+              className="text-sm text-white border border-white/20 hover:border-white/40 transition px-6 py-2 rounded-full"
+            >
+              {showAll ? "Show Less" : "Show All"}
+            </button>
+          </div>
+        )}
       </div>
 
       {/* Decorative Glow */}
