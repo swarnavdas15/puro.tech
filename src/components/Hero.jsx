@@ -1,43 +1,134 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import Mascot3D from "./Mascot3D";
 
 export default function Hero() {
-  const fullText =
+  // Dialogues
+  const roniText =
     "Hey, I’m Roni 👋\nI help turn ideas into powerful digital products.";
+  const puchuText =
+    "Hi, I’m Puchu 🌸\nI’ll guide you through what we can build together.";
+  const finalText = "We Are PURO";
 
+  // Hover dialogues
+  const hoverRoniText = "What may I help you with?";
+  const hoverPuchuText = "What do you want to build?";
+
+  // Core states
   const [showBubble, setShowBubble] = useState(false);
   const [typedText, setTypedText] = useState("");
   const [index, setIndex] = useState(0);
+  const [fullText, setFullText] = useState(roniText);
+  const [speaker, setSpeaker] = useState("roni");
+  const [isFinal, setIsFinal] = useState(false);
 
-  // Delay before bubble appears
+  // Typing reset key
+  const [typingKey, setTypingKey] = useState(0);
+
+  // Preserve timeline state during hover
+  const [prevText, setPrevText] = useState(roniText);
+  const [prevSpeaker, setPrevSpeaker] = useState("roni");
+
+  // 🔒 Active hover guard
+  const activeHoverRef = useRef(null);
+
+  /* Initial bubble delay */
   useEffect(() => {
     const delay = setTimeout(() => setShowBubble(true), 800);
     return () => clearTimeout(delay);
   }, []);
 
-  // Typing animation
+  /* Unified typewriter effect */
   useEffect(() => {
     if (!showBubble) return;
     if (index >= fullText.length) return;
 
-    const typing = setTimeout(() => {
+    const t = setTimeout(() => {
       setTypedText((prev) => prev + fullText[index]);
       setIndex((prev) => prev + 1);
     }, 35);
 
-    return () => clearTimeout(typing);
-  }, [index, showBubble]);
+    return () => clearTimeout(t);
+  }, [index, fullText, showBubble, typingKey]);
+
+  /* Safe typing restart helper */
+  const restartTyping = (text) => {
+    setTypedText("");
+    setIndex(0);
+    setFullText(text);
+    setTypingKey((k) => k + 1);
+  };
+
+  /* Mascot timeline: Roni → Puchu */
+  useEffect(() => {
+    const handleMascotChange = (e) => {
+      activeHoverRef.current = null;
+      setSpeaker(e.detail);
+      restartTyping(e.detail === "roni" ? roniText : puchuText);
+    };
+
+    window.addEventListener("mascot-change", handleMascotChange);
+    return () =>
+      window.removeEventListener("mascot-change", handleMascotChange);
+  }, []);
+
+  /* Final reveal */
+  useEffect(() => {
+    const handleFinalReveal = () => {
+      activeHoverRef.current = null;
+      setSpeaker("final");
+      setIsFinal(true);
+      restartTyping(finalText);
+    };
+
+    window.addEventListener("final-reveal", handleFinalReveal);
+    return () =>
+      window.removeEventListener("final-reveal", handleFinalReveal);
+  }, []);
+
+  /* Hover override (idempotent + safe) */
+  useEffect(() => {
+    const handleHover = (e) => {
+      const mascot = e.detail;
+
+      // prevent duplicate hover loops
+      if (activeHoverRef.current === mascot) return;
+      activeHoverRef.current = mascot;
+
+      setPrevText(fullText);
+      setPrevSpeaker(speaker);
+      setSpeaker(mascot);
+
+      restartTyping(mascot === "roni" ? hoverRoniText : hoverPuchuText);
+    };
+
+    const handleHoverEnd = () => {
+      if (!activeHoverRef.current) return;
+
+      activeHoverRef.current = null;
+      setSpeaker(prevSpeaker);
+      restartTyping(prevText);
+    };
+
+    window.addEventListener("mascot-hover", handleHover);
+    window.addEventListener("mascot-hover-end", handleHoverEnd);
+
+    return () => {
+      window.removeEventListener("mascot-hover", handleHover);
+      window.removeEventListener("mascot-hover-end", handleHoverEnd);
+    };
+  }, [fullText, speaker, prevText, prevSpeaker]);
 
   return (
     <section className="relative min-h-screen w-full bg-gradient-to-br from-black via-[#1a0508] to-black overflow-hidden">
-      
-      <div className="absolute inset-0 flex items-center justify-end pr-24 pointer-events-none select-none">
-        <span className="text-[180px] md:text-[260px] xl:text-[320px] font-extrabold tracking-tight text-white/5">
+
+      {/* Background Brand Text */}
+      <div className="absolute top-[-300px] inset-0 flex items-center justify-center md:justify-end md:pr-24 pointer-events-none select-none">
+        <span className="text-[96px] sm:text-[120px] md:text-[260px] xl:text-[320px] font-bold tracking-tight text-white/5">
           PURO
         </span>
       </div>
 
-      <div className="relative max-w-7xl mx-auto px-6 pt-32 pb-20 grid lg:grid-cols-2 gap-12 items-center">
+      <div className="relative max-w-7xl mx-auto px-6 pt-28 pb-20 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
 
         {/* LEFT CONTENT */}
         <div className="space-y-7">
@@ -62,45 +153,35 @@ export default function Hero() {
         </div>
 
         {/* RIGHT MASCOT */}
-        <div className="relative w-full h-[420px] lg:h-[520px] flex items-center justify-center">
+        <div className="relative w-full h-[360px] sm:h-[420px] lg:h-[520px] flex items-center justify-center">
 
-          {/* Conversation Bubble */}
-         {showBubble && (
-  <div
-    className="
-      absolute
-      right-[-110px] top-[10px]
-      z-20
-      max-w-xs
-      bg-white/10 backdrop-blur-xl
-      border border-white/20
-      rounded-2xl rounded-bl-sm
-      px-8 py-4
-      text-sm text-white
-      animate-fadeUp
-      shadow-[0_10px_30px_rgba(0,0,0,0.4)]
-    "
-  >
-    <p className="whitespace-pre-line text-gray-200 leading-relaxed">
-      {typedText}
-      <span className="animate-blink">|</span>
-    </p>
+          {showBubble && (
+            <div
+              className={`
+                pointer-events-none   /* 🔥 CRITICAL FIX */
+                absolute z-50 max-w-xs
+                ${
+                  speaker === "final"
+                    ? "left-1/2 -translate-x-1/2 bottom-[320px] sm:bottom-[350px] text-center"
+                    : speaker === "roni"
+                    ? "right-[55%] bottom-[10px] sm:bottom-[10px] lg:bottom-[70px]"
+                    : "left-[55%] bottom-[10px] sm:bottom-[50px] lg:bottom-[60px]"
+                }
+                bg-white/10 backdrop-blur-xl
+                border border-white/20
+                rounded-2xl
+                px-6 py-4
+                text-sm text-white
+                animate-fadeUp
+                shadow-[0_10px_30px_rgba(0,0,0,0.4)]
+              `}
+            >
+              <p className="whitespace-pre-line text-gray-200 leading-relaxed">
+                {typedText}
+              </p>
+            </div>
+          )}
 
-    {/* Tail */}
-    <span
-      className="
-        absolute
-        left-[-6px] top-12
-        w-3 h-3
-        bg-white/10
-        border-l border-t border-white/20
-        rotate-45
-        backdrop-blur-xl
-      "
-    />
-  </div>
-)}
-          {/* Mascot Component */}
           <Mascot3D />
         </div>
       </div>
@@ -111,7 +192,6 @@ export default function Hero() {
       {/* Animations */}
       <style>
         {`
-          /* Bubble entry */
           @keyframes fadeUp {
             from { opacity: 0; transform: translateY(10px); }
             to { opacity: 1; transform: translateY(0); }
@@ -120,23 +200,9 @@ export default function Hero() {
             animation: fadeUp 0.5s ease-out forwards;
           }
 
-          /* Cursor blink */
           @keyframes blink {
             0%, 50%, 100% { opacity: 1; }
             25%, 75% { opacity: 0; }
-          }
-          .animate-blink {
-            animation: blink 1s infinite;
-            margin-left: 2px;
-          }
-
-          /* Fake 3D hover */
-          .mascot-3d {
-            transform-style: preserve-3d;
-            transition: transform 0.35s ease;
-          }
-          .mascot-3d:hover {
-            transform: perspective(900px) rotateY(-6deg) rotateX(3deg);
           }
         `}
       </style>
