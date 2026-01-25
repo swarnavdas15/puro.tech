@@ -4,6 +4,7 @@ import viteLogo from '/vite.svg'
 import Home from './pages/Home'
 import ProjectsSection from './pages/ProjectsSection'
 import TestimonialsSection from './pages/TestimonalsSection'
+import JourneySection from './pages/JourneySection'
 import './App.css'
 
 function App() {
@@ -11,6 +12,7 @@ function App() {
   return (
     <>
      <Home />
+    <JourneySection />
      <ProjectsSection />
       <TestimonialsSection />
       <div className="min-h-screen flex items-center justify-center bg-gray-900">
