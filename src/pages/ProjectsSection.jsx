@@ -7,13 +7,15 @@ const projects = [
     subtitle: "UI / UX Design",
     image: "/projects/project-1.jpg",
     link: "#",
+    category: "website",
   },
   {
     id: 2,
     title: "Business Workflow",
-    subtitle: "Web Application",
+    subtitle: "Automation System",
     image: "/projects/project-2.jpg",
     link: "#",
+    category: "automation",
   },
   {
     id: 3,
@@ -21,6 +23,7 @@ const projects = [
     subtitle: "App Design",
     image: "/projects/project-3.jpg",
     link: "#",
+    category: "app",
   },
   {
     id: 4,
@@ -28,66 +31,108 @@ const projects = [
     subtitle: "Brand + Web",
     image: "/projects/project-4.jpg",
     link: "#",
+    category: "website",
   },
-    {
+   {
     id: 5,
     title: "E-Commerce Platform",
     subtitle: "Brand + Web",
     image: "/projects/project-4.jpg",
     link: "#",
+    category: "website",
   },
-    {
+   {
     id: 6,
     title: "E-Commerce Platform",
     subtitle: "Brand + Web",
     image: "/projects/project-4.jpg",
     link: "#",
+    category: "website",
   },
-    {
+   {
     id: 7,
     title: "E-Commerce Platform",
     subtitle: "Brand + Web",
     image: "/projects/project-4.jpg",
     link: "#",
+    category: "website",
   },
-  // add more to test
+   {
+    id: 8,
+    title: "E-Commerce Platform",
+    subtitle: "Brand + Web",
+    image: "/projects/project-4.jpg",
+    link: "#",
+    category: "website",
+  },
+  // add more later
 ];
 
+const filters = [
+  { key: "all", label: "All" },
+  { key: "app", label: "App" },
+  { key: "website", label: "Website" },
+  { key: "automation", label: "Automation" },
+];
 
 export default function ProjectsSection() {
   const MAX_VISIBLE = 6;
+
+  const [activeFilter, setActiveFilter] = useState("all");
   const [showAll, setShowAll] = useState(false);
 
-  const hasExtra = projects.length > MAX_VISIBLE;
+  const filteredProjects =
+    activeFilter === "all"
+      ? projects
+      : projects.filter((p) => p.category === activeFilter);
+
   const visibleProjects = showAll
-    ? projects
-    : projects.slice(0, MAX_VISIBLE);
+    ? filteredProjects
+    : filteredProjects.slice(0, MAX_VISIBLE);
+
+  const hasExtra = filteredProjects.length > MAX_VISIBLE;
 
   return (
     <section className="relative w-full py-24 bg-gradient-to-br from-black via-[#140406] to-black overflow-hidden">
       <div className="max-w-7xl mx-auto px-6">
 
         {/* Header */}
-        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16">
-          <div>
-            <h2 className="text-3xl md:text-4xl font-bold text-white">
-              Our <span className="text-red-600">Projects</span>
-            </h2>
-            <p className="mt-4 text-gray-400 max-w-xl">
-              A curated selection of digital products crafted with strong
-              aesthetics, performance, and scalability.
-            </p>
+        <div className="flex flex-col gap-8 mb-16">
+
+          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
+            <div>
+              <h2 className="text-3xl md:text-4xl font-bold text-white">
+                Our <span className="text-red-600">Projects</span>
+              </h2>
+              <p className="mt-4 text-gray-400 max-w-xl">
+                A curated selection of digital products crafted with strong
+                aesthetics, performance, and scalability.
+              </p>
+            </div>
           </div>
 
-          {/* Desktop Button */}
-          {hasExtra && (
-            <button
-              onClick={() => setShowAll((prev) => !prev)}
-              className="hidden md:inline-flex text-sm text-white border border-white/20 hover:border-white/40 transition px-6 py-2 rounded-full"
-            >
-              {showAll ? "Show Less" : "Show All"}
-            </button>
-          )}
+          {/* Filters */}
+          <div className="flex flex-wrap gap-3">
+            {filters.map((filter) => (
+              <button
+                key={filter.key}
+                onClick={() => {
+                  setActiveFilter(filter.key);
+                  setShowAll(false);
+                }}
+                className={`
+                  px-5 py-2 rounded-full text-sm transition
+                  ${
+                    activeFilter === filter.key
+                      ? "bg-red-600 text-white"
+                      : "border border-white/20 text-gray-300 hover:border-white/40"
+                  }
+                `}
+              >
+                {filter.label}
+              </button>
+            ))}
+          </div>
         </div>
 
         {/* Projects Grid */}
@@ -114,7 +159,7 @@ export default function ProjectsSection() {
                 />
               </div>
 
-              {/* Red Go-To Link */}
+              {/* Red Go-To */}
               <div
                 className="
                   absolute top-5 right-5 z-20
@@ -125,7 +170,7 @@ export default function ProjectsSection() {
                   opacity-0 translate-y-2 translate-x-2
                   group-hover:opacity-100
                   group-hover:translate-x-0 group-hover:translate-y-0
-                  transition-all duration-300 ease-out
+                  transition-all duration-300
                 "
               >
                 <svg
@@ -143,7 +188,7 @@ export default function ProjectsSection() {
                 </svg>
               </div>
 
-              {/* Glow Effect */}
+              {/* Glow */}
               <div
                 className="
                   pointer-events-none absolute inset-0
@@ -164,11 +209,11 @@ export default function ProjectsSection() {
           ))}
         </div>
 
-        {/* Mobile Button */}
+        {/* Show All / Less */}
         {hasExtra && (
-          <div className="mt-14 text-center md:hidden">
+          <div className="mt-14 text-center">
             <button
-              onClick={() => setShowAll((prev) => !prev)}
+              onClick={() => setShowAll((p) => !p)}
               className="text-sm text-white border border-white/20 hover:border-white/40 transition px-6 py-2 rounded-full"
             >
               {showAll ? "Show Less" : "Show All"}

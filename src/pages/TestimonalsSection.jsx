@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 const testimonials = [
   {
@@ -7,6 +7,9 @@ const testimonials = [
     role: "Founder, FinTech Startup",
     quote:
       "PURO Tech delivered beyond expectations. The design clarity and development speed were exceptional.",
+    rating: 5,
+    avatar: "/testimonials/rahul.jpg",
+    link: "https://www.linkedin.com/in/rahulmehta",
   },
   {
     id: 2,
@@ -14,6 +17,9 @@ const testimonials = [
     role: "Product Manager, SaaS",
     quote:
       "Their team understands both business and tech. The final product was clean, scalable, and fast.",
+    rating: 5,
+    avatar: "/testimonials/ananya.jpg",
+    link: "https://www.linkedin.com/in/ananyasharma",
   },
   {
     id: 3,
@@ -21,10 +27,65 @@ const testimonials = [
     role: "CEO, E-Commerce Brand",
     quote:
       "From idea to execution, everything was smooth. PURO feels like an extended in-house team.",
+    rating: 4,
+    avatar: "/testimonials/arjun.jpg",
+    link: "https://www.linkedin.com/in/arjunpatel",
   },
 ];
 
+function Stars({ count }) {
+  return (
+    <div className="flex gap-1">
+      {[...Array(5)].map((_, i) => (
+        <svg
+          key={i}
+          width="16"
+          height="16"
+          viewBox="0 0 24 24"
+          fill={i < count ? "#ef4444" : "none"}
+          stroke="#ef4444"
+          strokeWidth="1.5"
+        >
+          <polygon points="12 2 15 9 22 9 17 14 19 21 12 17 5 21 7 14 2 9 9 9" />
+        </svg>
+      ))}
+    </div>
+  );
+}
+
 export default function TestimonialsSection() {
+  const trackRef = useRef(null);
+  const [translateX, setTranslateX] = useState(0);
+  const speed = 0.4; // px per frame (adjust for faster/slower)
+
+  // Duplicate testimonials for infinite loop
+  const loopItems = [...testimonials, ...testimonials];
+
+  useEffect(() => {
+    let rafId;
+
+    const animate = () => {
+      if (!trackRef.current) return;
+
+      const trackWidth = trackRef.current.scrollWidth / 2;
+
+      setTranslateX((prev) => {
+        const next = prev + speed;
+
+        // When first set fully moves out, reset seamlessly
+        if (next >= trackWidth) {
+          return 0;
+        }
+        return next;
+      });
+
+      rafId = requestAnimationFrame(animate);
+    };
+
+    rafId = requestAnimationFrame(animate);
+    return () => cancelAnimationFrame(rafId);
+  }, []);
+
   return (
     <section className="relative w-full py-24 bg-gradient-to-br from-black via-[#120305] to-black overflow-hidden">
       <div className="max-w-7xl mx-auto px-6">
@@ -40,48 +101,82 @@ export default function TestimonialsSection() {
           </p>
         </div>
 
-        {/* Testimonials Grid */}
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-          {testimonials.map((item) => (
-            <div
-              key={item.id}
-              className="
-                relative group
-                rounded-2xl
-                bg-white/5 backdrop-blur-md
-                border border-white/10
-                p-8
-                transition-all duration-500
-                hover:-translate-y-2
-                hover:border-red-500/40
-              "
-            >
-              {/* Quote */}
-              <p className="text-gray-300 leading-relaxed">
-                “{item.quote}”
-              </p>
-
-              {/* Divider */}
-              <div className="my-6 h-px w-full bg-white/10" />
-
-              {/* Author */}
-              <div>
-                <p className="font-semibold text-white">{item.name}</p>
-                <p className="text-sm text-gray-400">{item.role}</p>
-              </div>
-
-              {/* Hover Glow */}
+        {/* Infinite Slider */}
+        <div className="overflow-hidden">
+          <div
+            ref={trackRef}
+            className="flex gap-8"
+            style={{
+              transform: `translateX(-${translateX}px)`,
+              willChange: "transform",
+            }}
+          >
+            {loopItems.map((item, i) => (
               <div
-                className="
-                  pointer-events-none absolute inset-0
-                  opacity-0 group-hover:opacity-100
-                  transition duration-500
-                  rounded-2xl
-                  bg-gradient-to-t from-red-600/20 via-red-600/5 to-transparent
-                "
-              />
-            </div>
-          ))}
+                key={`${item.id}-${i}`}
+                className="w-full md:w-[48%] lg:w-[31%] shrink-0"
+              >
+                <div
+                  className="
+                    relative group h-full
+                    rounded-2xl
+                    bg-white/5 backdrop-blur-md
+                    border border-white/10
+                    p-8
+                    transition-all duration-500
+                    hover:-translate-y-2
+                    hover:border-red-500/40
+                  "
+                >
+                  {/* Stars */}
+                  <Stars count={item.rating} />
+
+                  {/* Quote */}
+                  <p className="mt-5 text-gray-300 leading-relaxed">
+                    “{item.quote}”
+                  </p>
+
+                  {/* Footer */}
+                  <div className="mt-8 flex items-center gap-4">
+                    <a
+                      href={item.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group/avatar"
+                    >
+                      <img
+                        src={item.avatar}
+                        alt={item.name}
+                        className="
+                          w-12 h-12 rounded-full object-cover
+                          border border-white/20
+                          transition
+                          group-hover/avatar:ring-2
+                          ring-red-500
+                        "
+                      />
+                    </a>
+
+                    <div>
+                      <p className="font-semibold text-white">{item.name}</p>
+                      <p className="text-sm text-gray-400">{item.role}</p>
+                    </div>
+                  </div>
+
+                  {/* Glow */}
+                  <div
+                    className="
+                      pointer-events-none absolute inset-0
+                      opacity-0 group-hover:opacity-100
+                      transition duration-500
+                      rounded-2xl
+                      bg-gradient-to-t from-red-600/20 via-red-600/5 to-transparent
+                    "
+                  />
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
 
