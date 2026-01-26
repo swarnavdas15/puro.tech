@@ -16,9 +16,9 @@ export default function Footer() {
         <div>
           {/* Logo */}
           <div className="flex items-center gap-3 mb-6">
-            <div className="text-red-600 text-3xl font-bold">S</div>
+            <div className="text-red-600 text-3xl font-bold">P</div>
             <span className="text-3xl font-semibold text-red-600">
-              Stygar
+              PURO TECH
             </span>
           </div>
 

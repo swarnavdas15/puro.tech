@@ -20,7 +20,7 @@ export default function Navbar() {
           {/* Logo */}
           <div className="flex items-center gap-2 text-red-500 font-bold text-xl">
             <span className="w-8 h-8 rounded-md bg-red-600 flex items-center justify-center text-white">
-              S
+              P
             </span>
             PURO TECH
           </div>

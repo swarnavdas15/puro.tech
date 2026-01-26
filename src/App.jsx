@@ -1,28 +1,45 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import Home from './pages/Home'
-import Footer from './pages/Footer'
-import Services from './pages/Services'
-import Portfolio from './pages/Portfolio'
-import AboutHeroSection from './pages/AboutHeroSection'
-import Contact from './pages/Contact'
-import Navbar from './pages/Navbar'
-import './App.css'
+import { Routes, Route } from "react-router-dom";
+
+import Navbar from "./pages/Navbar";
+import Footer from "./pages/Footer";
+import NotFound from "./components/NotFound";
+
+// Pages
+import Home from "./pages/Home";
+import Services from "./pages/Services";
+import Portfolio from "./pages/Portfolio";
+import AboutHeroSection from "./pages/AboutHeroSection";
+import Contact from "./pages/Contact";
+
+import "./App.css";
 
 function App() {
-  
   return (
     <>
+      {/* Global */}
       <Navbar />
-      <Home />
+
+      {/* Routes */}
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/services" element={<Services />} />
+        <Route path="/portfolio" element={<Portfolio />} />
+        <Route path="/about" element={<AboutHeroSection />} />
+        <Route path="/contact" element={<Contact />} />
+
+        {/* Optional 404 */}
+        <Route
+          path="*"
+          element={
+           <NotFound />
+          }
+        />
+      </Routes>
+
+      {/* Global */}
       <Footer />
-      <Services />
-      <Portfolio />
-      <AboutHeroSection />
-      <Contact />
     </>
-  )
+  );
 }
 
-export default App
+export default App;
