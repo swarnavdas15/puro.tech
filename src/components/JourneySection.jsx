@@ -91,7 +91,7 @@ export default function JourneySection() {
       C 1690 40, 20 600, 300 220
       C 40 30, 720 300, 520 300
       C -509 330, 320 420, 783 550
-      C 620 500, 1000 560, 1500 300
+      C 620 500, 1000 560, 1100 300
     "
               stroke="#ef4444"
               strokeWidth="1.5"

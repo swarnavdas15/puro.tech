@@ -1,14 +1,21 @@
 import React from 'react'
-import Navbar from '../components/Navbar.jsx'
 import Hero from '../components/Hero.jsx'
 import AchievementSection from '../components/AchievementSection.jsx'
+import FeaturedProjects from '../components/FeaturedProjects.jsx'
+import JourneySection from '../components/JourneySection.jsx'
+import TestimonialsSection from '../components/TestimonalsSection.jsx'
+import CtaSection from '../components/CtaSection.jsx'
 
 function Home() {
   return (
-    <div className='home-cont'>
-      <Navbar />
+    <div id='Home' className='home-cont'>
+    
        <Hero />
-        <AchievementSection />
+        <FeaturedProjects />
+         <AchievementSection />
+         <JourneySection />
+        <TestimonialsSection />
+        <CtaSection />
     </div>
   )
 }

@@ -49,17 +49,32 @@ export default function Hero() {
 
 
   /* Unified typewriter effect */
-  useEffect(() => {
-    if (!canAnimate || !showBubble) return;
-    if (index >= fullText.length) return;
+ useEffect(() => {
+  if (!canAnimate || !showBubble) return;
 
-    const t = setTimeout(() => {
-      setTypedText((prev) => prev + fullText[index]);
-      setIndex((prev) => prev + 1);
-    }, 35);
+  // 🔒 HARD BOUNDS
+  if (index < 0) return;
+  if (index >= fullText.length) return;
 
-    return () => clearTimeout(t);
-  }, [index, fullText, showBubble, typingKey]);
+  // 🔒 SNAPSHOT GUARD (prevents stale timeouts)
+  const currentText = fullText;
+
+  const t = setTimeout(() => {
+    setTypedText((prev) => {
+      // If text changed mid-typing, abort safely
+      if (currentText !== fullText) return "";
+      return prev + currentText[index];
+    });
+
+    setIndex((prev) => {
+      if (currentText !== fullText) return 0;
+      return prev + 1;
+    });
+  }, 35);
+
+  return () => clearTimeout(t);
+}, [index, fullText, showBubble, typingKey, canAnimate]);
+
 
   /* Safe typing restart helper */
   const restartTyping = (text) => {
@@ -196,6 +211,76 @@ export default function Hero() {
           <Mascot3D />
         </div>
       </div>
+   
+   {/* ================= HERO STATS ================= */}
+<div className="relative max-w-6xl mx-auto px-10 mt-[-6%]">
+  <div className="
+    relative
+    grid grid-cols-2 sm:grid-cols-4
+    gap-10
+    items-center
+    text-white
+  ">
+
+    {/* Left decorative dots */}
+    <div className="absolute -left-25 top-10 -translate-y-1/2 hidden sm:block">
+      <div className="grid grid-cols-3 gap-2">
+        {Array.from({ length: 6 }).map((_, i) => (
+          <span
+            key={i}
+            className="w-2 h-2 rounded-full bg-red-600"
+          />
+        ))}
+      </div>
+    </div>
+
+    {/* STAT 1 */}
+    <div className="text-center sm:text-left">
+      <h3 className="text-4xl text-gray-500 font-bold">150+</h3>
+      <p className="mt-2 text-sm text-gray-500">
+        Project <br /> Completed
+      </p>
+    </div>
+
+    {/* STAT 2 */}
+    <div className="text-center sm:text-left">
+      <h3 className="text-4xl text-red-500 font-bold">98%</h3>
+      <p className="mt-2 text-sm text-gray-400">
+        Client <br /> Satisfaction
+      </p>
+    </div>
+
+    {/* STAT 3 */}
+    <div className="text-center sm:text-left">
+      <h3 className="text-4xl text-red-500 font-bold">5+</h3>
+      <p className="mt-2 text-sm text-gray-400">
+        Years of <br /> Experience
+      </p>
+    </div>
+
+    {/* STAT 4 */}
+    <div className="text-center sm:text-left">
+      <h3 className="text-4xl text-gray-500 font-bold">24/7</h3>
+      <p className="mt-2 text-sm text-gray-500">
+        Support <br /> Available
+      </p>
+    </div>
+
+    {/* Right decorative dots */}
+    <div className="absolute -right-1 top-1/2 -translate-y-1/2 hidden sm:block">
+      <div className="grid grid-cols-3 gap-2">
+        {Array.from({ length: 6 }).map((_, i) => (
+          <span
+            key={i}
+            className="w-2 h-2 rounded-full bg-red-600"
+          />
+        ))}
+      </div>
+    </div>
+
+  </div>
+</div>
+
 
       {/* Decorative Glow */}
       <div className="absolute -top-24 -right-24 w-96 h-96 bg-red-600/20 blur-[120px] rounded-full" />

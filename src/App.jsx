@@ -2,24 +2,25 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import Home from './pages/Home'
-import ProjectsSection from './pages/ProjectsSection'
-import TestimonialsSection from './pages/TestimonalsSection'
-import JourneySection from './pages/JourneySection'
+import Footer from './pages/Footer'
+import Services from './pages/Services'
+import Portfolio from './pages/Portfolio'
+import AboutHeroSection from './pages/AboutHeroSection'
+import Contact from './pages/Contact'
+import Navbar from './pages/Navbar'
 import './App.css'
 
 function App() {
   
   return (
     <>
-     <Home />
-    <JourneySection />
-     <ProjectsSection />
-      <TestimonialsSection />
-      <div className="min-h-screen flex items-center justify-center bg-gray-900">
-      <h1 className="text-4xl font-bold text-white">
-        Tailwind + React + Vite Working
-      </h1>
-    </div>
+      <Navbar />
+      <Home />
+      <Footer />
+      <Services />
+      <Portfolio />
+      <AboutHeroSection />
+      <Contact />
     </>
   )
 }
