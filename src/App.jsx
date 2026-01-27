@@ -1,5 +1,5 @@
 import { Routes, Route } from "react-router-dom";
-
+import ScrollToTop from "./components/ScrollToTop";
 import Navbar from "./pages/Navbar";
 import Footer from "./pages/Footer";
 import NotFound from "./components/NotFound";
@@ -20,7 +20,7 @@ function App() {
     <>
       {/* Global */}
       <Navbar />
-
+      <ScrollToTop />
       {/* Routes */}
       <Routes>
         <Route path="/" element={<Home />} />

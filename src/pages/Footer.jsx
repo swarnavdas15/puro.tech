@@ -1,6 +1,6 @@
 import react from 'react'
 import { Link } from 'react-router-dom';
-import { FaInstagram, FaLinkedinIn, FaGithub, FaTwitter } from "react-icons/fa";
+import { FaInstagram, FaLinkedinIn, FaGithub,  FaGoogle } from "react-icons/fa";
 
 export default function Footer() {
   return (
@@ -58,7 +58,7 @@ export default function Footer() {
           <div className="inline-flex items-center gap-4 mt-8 px-5 py-2 rounded-full border border-white/20 backdrop-blur-md">
 
             <a
-              href="https://instagram.com/yourprofile"
+              href="https://www.instagram.com/_puro.tech?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
               target="_blank"
               rel="noopener noreferrer"
               className="w-9 h-9 flex items-center justify-center rounded-full bg-white/10 
@@ -69,7 +69,7 @@ export default function Footer() {
             </a>
 
             <a
-              href="https://linkedin.com/in/yourprofile"
+              href="https://www.linkedin.com/in/swarnav-das-6929542bb/"
               target="_blank"
               rel="noopener noreferrer"
               className="w-9 h-9 flex items-center justify-center rounded-full bg-white/10 
@@ -80,7 +80,7 @@ export default function Footer() {
             </a>
 
             <a
-              href="https://github.com/yourprofile"
+              href="https://github.com/swarnavdas15"
               target="_blank"
               rel="noopener noreferrer"
               className="w-9 h-9 flex items-center justify-center rounded-full bg-white/10 
@@ -91,14 +91,14 @@ export default function Footer() {
             </a>
 
             <a
-              href="https://twitter.com/yourprofile"
+              href="mailto:puro.tech.ofcl@gmail.com"
               target="_blank"
               rel="noopener noreferrer"
               className="w-9 h-9 flex items-center justify-center rounded-full bg-white/10 
                hover:bg-red-600 hover:scale-110 hover:shadow-red-600/40 
                transition-all duration-300"
             >
-              <FaTwitter className="text-white text-lg" />
+              <FaGoogle className="text-white text-lg" />
             </a>
 
           </div>
