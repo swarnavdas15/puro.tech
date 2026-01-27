@@ -1,5 +1,6 @@
 import { useEffect, useState, useRef } from "react";
 import Mascot3D from "./Mascot3D";
+import { useNavigate } from 'react-router-dom';
 
 export default function Hero() {
   // Dialogues
@@ -31,6 +32,8 @@ export default function Hero() {
 
   // 🔒 Active hover guard
   const activeHoverRef = useRef(null);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
   const t = setTimeout(() => {
@@ -169,10 +172,10 @@ export default function Hero() {
           </p>
 
           <div className="flex flex-wrap gap-4">
-            <button className="bg-red-600 hover:bg-red-700 transition px-7 py-3 rounded-full text-white font-semibold">
+            <button onClick={()=>navigate("/contact")} className="bg-red-600 hover:bg-red-700 transition px-7 py-3 rounded-full text-white font-semibold">
               Start a Project
             </button>
-            <button className="border border-white/20 hover:border-white/40 transition px-7 py-3 rounded-full text-white">
+            <button onClick={()=>navigate("/portfolio")} className="border border-white/20 hover:border-white/40 transition px-7 py-3 rounded-full text-white">
               See Our Work
             </button>
           </div>

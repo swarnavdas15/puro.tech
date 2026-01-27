@@ -1,8 +1,10 @@
 import React from "react";
 import CreativeDesign from "../components/CreativeDesign.jsx";
-
+import FeaturedProjects from "../components/FeaturedProjects.jsx";
+import TestimonialsSection from "../components/TestimonalsSection.jsx";
 export default function Services() {
   return (
+    <>
     <main className="relative w-full min-h-screen bg-gradient-to-br from-black via-[#140406] to-black overflow-hidden">
 
       {/* HERO */}
@@ -12,6 +14,7 @@ export default function Services() {
         px-6
         pt-30 sm:pt-36
         pb-5 sm:pb-24
+         min-h-[55vh] sm:min-h-[65vh] lg:min-h-[55vh]
         text-center
         overflow-hidden
       ">
@@ -36,7 +39,7 @@ export default function Services() {
 
         {/* MAIN HEADING */}
         <h2 className="
-          relative z-10
+          relative z-10 top-20
           text-3xl sm:text-4xl md:text-5xl
           text-white font-medium leading-tight
         ">
@@ -44,14 +47,27 @@ export default function Services() {
           <span className="text-red-600">Vision</span> Into Reality
         </h2>
 
-        {/* DOT CLUSTERS – hide on small screens */}
-        <div className="hidden sm:grid absolute left-[12%] top-[40%] grid-cols-3 gap-2">
+        <div className="
+          absolute
+          left-[8%]
+          bottom-[14%]
+          sm:left-[14%]
+          sm:bottom-[22%]
+          grid grid-cols-3 gap-2
+        ">
           {Array.from({ length: 9 }).map((_, i) => (
             <span key={i} className="w-2 h-2 bg-red-600 rounded-full" />
           ))}
         </div>
 
-        <div className="hidden sm:grid absolute right-[15%] top-[30%] grid-cols-3 gap-2">
+        <div className="
+          absolute
+          right-[8%]
+          top-[35%]
+          sm:right-[14%]
+          sm:top-[26%]
+          grid grid-cols-3 gap-2
+        ">
           {Array.from({ length: 9 }).map((_, i) => (
             <span key={i} className="w-2 h-2 bg-red-600 rounded-full" />
           ))}
@@ -66,5 +82,8 @@ export default function Services() {
       {/* AMBIENT GLOW */}
       <div className="absolute -right-40 top-1/3 w-[420px] h-[420px] bg-red-600/20 blur-[160px] rounded-full" />
     </main>
+        <FeaturedProjects />
+        <TestimonialsSection />
+    </>
   );
 }

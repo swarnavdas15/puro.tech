@@ -1,4 +1,6 @@
 import react from 'react'
+import { Link } from 'react-router-dom';
+import { FaInstagram, FaLinkedinIn, FaGithub, FaTwitter } from "react-icons/fa";
 
 export default function Footer() {
   return (
@@ -15,12 +17,15 @@ export default function Footer() {
         {/* LEFT */}
         <div>
           {/* Logo */}
-          <div className="flex items-center gap-3 mb-6">
-            <div className="text-red-600 text-3xl font-bold">P</div>
-            <span className="text-3xl font-semibold text-red-600">
-              PURO TECH
-            </span>
-          </div>
+          <div className="flex items-center gap-2 select-none">
+  <span className="text-white font-bold tracking-wide text-3xl">
+    PURO
+  </span>
+  <span className="text-red-600 font-bold tracking-wide text-2xl">
+    TECH
+  </span>
+</div>
+
 
           {/* Description */}
           <p className="text-sm text-gray-400 leading-relaxed max-w-[420px]">
@@ -37,22 +42,63 @@ export default function Footer() {
           </div>
 
           {/* Social Capsule */}
-          <div className="inline-flex items-center gap-4 mt-8 px-5 py-2 rounded-full border border-white/20">
-            <span className="w-4 h-4 bg-white/40 rounded-full" />
-            <span className="w-4 h-4 bg-white/40 rounded-full" />
-            <span className="w-4 h-4 bg-white/40 rounded-full" />
-            <span className="w-4 h-4 bg-white/40 rounded-full" />
-          </div>
+         <div className="inline-flex items-center gap-4 mt-8 px-5 py-2 rounded-full border border-white/20 backdrop-blur-md">
+
+  <a
+    href="https://instagram.com/yourprofile"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="w-9 h-9 flex items-center justify-center rounded-full bg-white/10 
+               hover:bg-red-600 hover:scale-110 hover:shadow-pink-500/40 
+               transition-all duration-300"
+  >
+    <FaInstagram className="text-white text-lg" />
+  </a>
+
+  <a
+    href="https://linkedin.com/in/yourprofile"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="w-9 h-9 flex items-center justify-center rounded-full bg-white/10 
+               hover:bg-red-600 hover:scale-110 hover:shadow-blue-600/40 
+               transition-all duration-300"
+  >
+    <FaLinkedinIn className="text-white text-lg" />
+  </a>
+
+  <a
+    href="https://github.com/yourprofile"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="w-9 h-9 flex items-center justify-center rounded-full bg-white/10 
+               hover:bg-red-600 hover:scale-110 hover:shadow-gray-800/40 
+               transition-all duration-300"
+  >
+    <FaGithub className="text-white text-lg" />
+  </a>
+
+  <a
+    href="https://twitter.com/yourprofile"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="w-9 h-9 flex items-center justify-center rounded-full bg-white/10 
+               hover:bg-red-600 hover:scale-110 hover:shadow-red-600/40 
+               transition-all duration-300"
+  >
+    <FaTwitter className="text-white text-lg" />
+  </a>
+
+</div>
         </div>
 
         {/* SERVICES */}
         <div>
           <h4 className="text-sm text-white mb-6">Services</h4>
           <ul className="space-y-4 text-sm text-gray-400">
-            <li>Web Development</li>
-            <li>UI / UX Design</li>
-            <li>Digital Marketing</li>
-            <li>Brand Strategy</li>
+            <li><Link className='hover:text-white' to="/services">Web Development</Link></li>
+            <li><Link className='hover:text-white' to="/services">UI / UX Design</Link></li>
+            <li><Link className='hover:text-white' to="/services">Digital Marketing</Link></li>
+            <li><Link className='hover:text-white' to="/services">Brand Strategy</Link></li>
           </ul>
         </div>
 
@@ -60,9 +106,10 @@ export default function Footer() {
         <div>
           <h4 className="text-sm text-white mb-6">Company</h4>
           <ul className="space-y-4 text-sm text-gray-400">
-            <li>About Us</li>
-            <li>Privacy Policy</li>
-            <li>Portfolio</li>
+            <li><Link className='hover:text-white' to="/about">About Us</Link></li>
+            <li><Link className='hover:text-white' to="/privacy-policy">Privacy Policy</Link></li>
+            <li><Link className='hover:text-white' to="/portfolio">Portfolio</Link></li>
+            <li><Link className='hover:text-white' to="/contact">FAQ</Link></li>
           </ul>
         </div>
       </div>
@@ -74,8 +121,8 @@ export default function Footer() {
 
       {/* BOTTOM BAR */}
       <div className="max-w-7xl mx-auto px-6 py-8 flex flex-col md:flex-row justify-between items-center text-xs text-gray-400">
-        <span>Privacy Policy • Disclaimer</span>
-        <span>Copyright © Stygar All right Reserved 2025</span>
+        <span><Link to="/privacy-policy">Privacy Policy</Link> • <Link to="/disclaimer">Disclaimer</Link></span>
+        <span>© {new Date().getFullYear()} PURO TECH. All rights reserved.</span>
       </div>
     </footer>
   );

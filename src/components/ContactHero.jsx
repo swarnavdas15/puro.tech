@@ -27,6 +27,34 @@ export default function ContactHero() {
         Contact
       </span>
 
+       <div
+          className="
+            absolute
+            left-[8%] bottom-[18%]
+            sm:left-[14%] sm:bottom-[24%]
+            grid grid-cols-3 gap-2
+          "
+        >
+          {Array.from({ length: 9 }).map((_, i) => (
+            <span key={i} className="w-2 h-2 bg-red-600 rounded-full" />
+          ))}
+        </div>
+
+        {/* DOT CLUSTER – RIGHT */}
+        <div
+          className="
+            absolute
+            right-[8%] top-[20%]
+            sm:right-[14%] sm:top-[28%]
+            grid grid-cols-3 gap-2
+          "
+        >
+          {Array.from({ length: 9 }).map((_, i) => (
+            <span key={i} className="w-2 h-2 bg-red-600 rounded-full" />
+          ))}
+        </div>
+
+
       {/* MAIN HEADING */}
       <h1 className="
         relative z-10

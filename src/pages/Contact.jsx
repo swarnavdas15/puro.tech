@@ -2,6 +2,7 @@ import { useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 import ContactForm from "../components/ContactForm";
 import ContactHero from "../components/ContactHero";
+import FaqSection from "../components/FaqSection";
 
 export default function Contact() {
   const location = useLocation();
@@ -13,10 +14,14 @@ export default function Contact() {
   }, [location.search]);
 
   return (
+      <>
+   
     <section>
         <ContactHero />
       {/* Hero / Heading / Mascot */}
       <ContactForm email={email} />
     </section>
+   <FaqSection />
+    </>
   );
 }

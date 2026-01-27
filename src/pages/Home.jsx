@@ -11,8 +11,8 @@ function Home() {
     <div id='Home' className='home-cont'>
     
        <Hero />
-        <FeaturedProjects />
          <AchievementSection />
+         <FeaturedProjects />
          <JourneySection />
         <TestimonialsSection />
         <CtaSection />

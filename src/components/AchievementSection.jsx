@@ -88,7 +88,7 @@ export default function AchievementsSection() {
                 absolute
                 right-0 top-1/2
                 translate-y-[-50%]
-                lg:right-[50%] lg:top-[15%]
+                lg:right-[55%] lg:top-[15%]
                 grid grid-cols-3 gap-2
               "
             >

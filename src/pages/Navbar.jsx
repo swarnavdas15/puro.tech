@@ -5,10 +5,9 @@ export default function Navbar() {
   const [open, setOpen] = useState(false);
 
   const linkClass = ({ isActive }) =>
-    `cursor-pointer transition ${
-      isActive
-        ? "text-white border-b-2 border-red-600 pb-1"
-        : "text-gray-300 hover:text-white"
+    `cursor-pointer transition ${isActive
+      ? "text-white border-b-2 border-red-600 pb-1"
+      : "text-gray-300 hover:text-white"
     }`;
 
   return (
@@ -18,12 +17,15 @@ export default function Navbar() {
         <div className="max-w-7xl mx-auto px-5 py-4 flex items-center justify-between">
 
           {/* Logo */}
-          <div className="flex items-center gap-2 text-red-500 font-bold text-xl">
-            <span className="w-8 h-8 rounded-md bg-red-600 flex items-center justify-center text-white">
-              P
+          <div className="flex items-center gap-2 select-none">
+            <span className="text-white font-semibold tracking-[0.18em] text-2xl">
+              PURO
             </span>
-            PURO TECH
+            <span className="text-red-500 font-semibold tracking-[0.22em] text-xl">
+              TECH
+            </span>
           </div>
+
 
           {/* Desktop Menu */}
           <ul className="hidden md:flex items-center gap-8">
@@ -55,9 +57,8 @@ export default function Navbar() {
 
       {/* Mobile Side Overlay */}
       <div
-        className={`fixed top-0 right-0 h-full w-full z-50 transition-all duration-300 ${
-          open ? "translate-x-0" : "translate-x-full"
-        }`}
+        className={`fixed top-0 right-0 h-full w-full z-50 transition-all duration-300 ${open ? "translate-x-0" : "translate-x-full"
+          }`}
       >
         {/* Background overlay */}
         <div
@@ -70,7 +71,13 @@ export default function Navbar() {
 
           {/* Close Button */}
           <div className="flex justify-between items-center mb-10">
-            <div className="text-red-500 font-bold text-lg">Stygar</div>
+            <span className="text-white flex align-baseline items-center gap-1 font-bold tracking-wide text-2xl">
+              PURO
+              <span className="text-red-600  font-bold tracking-wide text-xl">
+              TECH
+            </span>
+            </span>
+            
             <button
               className="text-white text-2xl"
               onClick={() => setOpen(false)}
