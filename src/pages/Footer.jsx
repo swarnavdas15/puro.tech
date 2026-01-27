@@ -18,77 +18,90 @@ export default function Footer() {
         <div>
           {/* Logo */}
           <div className="flex items-center gap-2 select-none">
-  <span className="text-white font-bold tracking-wide text-3xl">
-    PURO
-  </span>
-  <span className="text-red-600 font-bold tracking-wide text-2xl">
-    TECH
-  </span>
-</div>
+            <span className="text-white font-bold tracking-wide text-3xl">
+              PURO
+            </span>
+            <span className="text-red-600 font-bold tracking-wide text-2xl">
+              TECH
+            </span>
+          </div>
 
 
           {/* Description */}
           <p className="text-sm text-gray-400 leading-relaxed max-w-[420px]">
-            Pizza ipsum dolor meat lovers buffalo. Extra broccoli parmesan
-            ricotta garlic dolor sauce marinara Chicago marinara. Tomato dolor
-            pesto pesto Bianca pesto roll onions.
+            PURO Tech builds secure, scalable digital solutions with a focus on clarity, performance, and long-term reliability.
           </p>
 
           {/* Contact Row */}
           <div className="flex flex-wrap gap-6 mt-6 text-sm text-gray-400">
-            <span>• stygar@help.com</span>
-            <span>• +1 (555) 123-4567</span>
-            <span>• 5987 Mid Rivers Mall Dr, St. Charles</span>
+            <a
+              href="mailto:puro.tech.ofcl@gmail.com"
+              className="hover:text-red-500 transition-colors"
+            >
+              • puro.tech.ofcl@gmail.com
+            </a>
+
+            <a
+              href="tel:+91-8889287261"
+              className="hover:text-red-500 transition-colors"
+            >
+              • +91 88892-87261
+            </a>
+
+           <span className="text-gray-400 tracking-wide">
+  • Tollygunj, Thakurpukur, WB-700093, India
+</span>
           </div>
 
-          {/* Social Capsule */}
-         <div className="inline-flex items-center gap-4 mt-8 px-5 py-2 rounded-full border border-white/20 backdrop-blur-md">
 
-  <a
-    href="https://instagram.com/yourprofile"
-    target="_blank"
-    rel="noopener noreferrer"
-    className="w-9 h-9 flex items-center justify-center rounded-full bg-white/10 
+          {/* Social Capsule */}
+          <div className="inline-flex items-center gap-4 mt-8 px-5 py-2 rounded-full border border-white/20 backdrop-blur-md">
+
+            <a
+              href="https://instagram.com/yourprofile"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-9 h-9 flex items-center justify-center rounded-full bg-white/10 
                hover:bg-red-600 hover:scale-110 hover:shadow-pink-500/40 
                transition-all duration-300"
-  >
-    <FaInstagram className="text-white text-lg" />
-  </a>
+            >
+              <FaInstagram className="text-white text-lg" />
+            </a>
 
-  <a
-    href="https://linkedin.com/in/yourprofile"
-    target="_blank"
-    rel="noopener noreferrer"
-    className="w-9 h-9 flex items-center justify-center rounded-full bg-white/10 
+            <a
+              href="https://linkedin.com/in/yourprofile"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-9 h-9 flex items-center justify-center rounded-full bg-white/10 
                hover:bg-red-600 hover:scale-110 hover:shadow-blue-600/40 
                transition-all duration-300"
-  >
-    <FaLinkedinIn className="text-white text-lg" />
-  </a>
+            >
+              <FaLinkedinIn className="text-white text-lg" />
+            </a>
 
-  <a
-    href="https://github.com/yourprofile"
-    target="_blank"
-    rel="noopener noreferrer"
-    className="w-9 h-9 flex items-center justify-center rounded-full bg-white/10 
+            <a
+              href="https://github.com/yourprofile"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-9 h-9 flex items-center justify-center rounded-full bg-white/10 
                hover:bg-red-600 hover:scale-110 hover:shadow-gray-800/40 
                transition-all duration-300"
-  >
-    <FaGithub className="text-white text-lg" />
-  </a>
+            >
+              <FaGithub className="text-white text-lg" />
+            </a>
 
-  <a
-    href="https://twitter.com/yourprofile"
-    target="_blank"
-    rel="noopener noreferrer"
-    className="w-9 h-9 flex items-center justify-center rounded-full bg-white/10 
+            <a
+              href="https://twitter.com/yourprofile"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-9 h-9 flex items-center justify-center rounded-full bg-white/10 
                hover:bg-red-600 hover:scale-110 hover:shadow-red-600/40 
                transition-all duration-300"
-  >
-    <FaTwitter className="text-white text-lg" />
-  </a>
+            >
+              <FaTwitter className="text-white text-lg" />
+            </a>
 
-</div>
+          </div>
         </div>
 
         {/* SERVICES */}

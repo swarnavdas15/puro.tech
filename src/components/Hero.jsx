@@ -4,15 +4,17 @@ import { useNavigate } from 'react-router-dom';
 
 export default function Hero() {
   // Dialogues
-  const roniText =
-    "Hey, I’m Roni 👋\nI help turn ideas into powerful digital products.";
-  const puchuText =
-    "Hi, I’m Puchu 🌸\nI’ll guide you through what we can build together.";
-  const finalText = "We Are PURO";
+ const roniText =
+  "Hey, I’m Roni.\nI help turn ideas into smart digital solutions.";
 
-  // Hover dialogues
-  const hoverRoniText = "What may I help you with?";
-  const hoverPuchuText = "What do you want to build?";
+const puchuText =
+  "Hi, I’m Puchu.\nLet’s explore what we can build together.";
+
+const finalText = "We Are PURO";
+
+// Hover dialogues
+const hoverRoniText = "How can I help you today?";
+const hoverPuchuText = "What would you like to build?";
 
   // Core states
   const [showBubble, setShowBubble] = useState(false);
@@ -148,7 +150,7 @@ export default function Hero() {
   }, [fullText, speaker, prevText, prevSpeaker]);
 
   return (
-    <section className="relative min-h-screen w-full bg-gradient-to-br from-black via-[#1a0508] to-black overflow-hidden">
+    <section className="relative font-sora min-h-screen w-full bg-gradient-to-br from-black via-[#1a0508] to-black overflow-hidden">
 
       {/* Background Brand Text */}
       <div className="absolute top-[-300px] inset-0 flex items-center justify-center md:justify-end md:pr-24 pointer-events-none select-none">
@@ -167,8 +169,7 @@ export default function Hero() {
           </h1>
 
           <p className="text-gray-400 max-w-xl text-lg">
-            We design and develop digital experiences that are visually striking,
-            technically robust, and engineered to scale.
+            We design and build secure, scalable digital solutions that help businesses grow with clarity.
           </p>
 
           <div className="flex flex-wrap gap-4">
@@ -239,7 +240,7 @@ export default function Hero() {
 
     {/* STAT 1 */}
     <div className="text-center sm:text-left">
-      <h3 className="text-4xl text-gray-500 font-bold">150+</h3>
+      <h3 className="text-4xl text-gray-500 font-bold">30+</h3>
       <p className="mt-2 text-sm text-gray-500">
         Project <br /> Completed
       </p>
@@ -247,7 +248,7 @@ export default function Hero() {
 
     {/* STAT 2 */}
     <div className="text-center sm:text-left">
-      <h3 className="text-4xl text-red-500 font-bold">98%</h3>
+      <h3 className="text-4xl text-red-500 font-bold">95%</h3>
       <p className="mt-2 text-sm text-gray-400">
         Client <br /> Satisfaction
       </p>
@@ -255,7 +256,7 @@ export default function Hero() {
 
     {/* STAT 3 */}
     <div className="text-center sm:text-left">
-      <h3 className="text-4xl text-red-500 font-bold">5+</h3>
+      <h3 className="text-4xl text-red-500 font-bold">2+</h3>
       <p className="mt-2 text-sm text-gray-400">
         Years of <br /> Experience
       </p>

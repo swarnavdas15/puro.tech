@@ -18,14 +18,13 @@ export default function Navbar() {
 
           {/* Logo */}
           <div className="flex items-center gap-2 select-none">
-            <span className="text-white font-semibold tracking-[0.18em] text-2xl">
-              PURO
-            </span>
-            <span className="text-red-500 font-semibold tracking-[0.22em] text-xl">
-              TECH
-            </span>
-          </div>
-
+  <span className="text-white font-bold tracking-wide text-3xl">
+    PURO
+  </span>
+  <span className="text-red-600 font-bold tracking-wide text-2xl">
+    TECH
+  </span>
+</div>
 
           {/* Desktop Menu */}
           <ul className="hidden md:flex items-center gap-8">

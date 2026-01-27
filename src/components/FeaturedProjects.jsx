@@ -36,12 +36,11 @@ export default function FeaturedProjects() {
 
         {/* Header */}
         <div className="max-w-2xl mb-16">
-          <h2 className="text-4xl md:text-5xl font-semibold text-white">
-            Featured <span className="text-red-600">Projects</span>
+          <h2 className="text-5xl md:text-5xl font-semibold text-white">
+            Featured <span className="text-red-600">Concepts</span>
           </h2>
           <p className="mt-4 text-gray-400 leading-relaxed">
-            A hand-picked selection of our most impactful digital products,
-            crafted with precision, performance, and aesthetics.
+           A curated selection of high-impact digital solutions, built with clarity, security, scalability, and performance at the core.
           </p>
         </div>
 

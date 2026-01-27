@@ -4,40 +4,70 @@ import {
   Bot,
   Smartphone,
   Layers,
+  Briefcase,
+  Search,
+  Shield,
 } from "lucide-react";
 
 export default function CreativeDesign() {
   const [hovered, setHovered] = useState(null);
 
   const strategyList = [
-    "User Research",
-    "Wireframing",
-    "Prototyping",
-    "Design System",
+   "Requirement Analysis",
+"Solution Planning",
+"System Architecture",
+"Security Review",
+"Development & Integration",
+"Testing & Optimization",
+"Deployment",
+"Support",
+
   ];
 
   const cards = [
     {
-      id: 1,
-      title: "Web Development",
-      desc:
-        "Lorem ipsum dolor sit amet consectetur. Venenatis lectus mollis placerat id. Egestas turpis mattis adipiscing ut.",
-      icon: <Code2 size={22} />,
-    },
-    {
-      id: 2,
-      title: "Automation",
-      desc:
-        "Lorem ipsum dolor sit amet consectetur. Venenatis lectus mollis placerat id. Egestas turpis mattis adipiscing ut.",
-      icon: <Bot size={22} />,
-    },
-    {
-      id: 3,
-      title: "Mobile Apps",
-      desc:
-        "Lorem ipsum dolor sit amet consectetur. Venenatis lectus mollis placerat id. Egestas turpis mattis adipiscing ut.",
-      icon: <Smartphone size={22} />,
-    },
+  id: 1,
+  title: "Web Development",
+  desc:
+    "We design and build secure, scalable websites focused on clarity, performance, and long-term reliability.",
+  icon: <Code2 size={22} />,
+},
+{
+  id: 2,
+  title: "Automation",
+  desc:
+    "We implement practical automation solutions to streamline workflows, reduce manual effort, and improve efficiency.",
+  icon: <Bot size={22} />,
+},
+{
+  id: 3,
+  title: "Mobile Apps",
+  desc:
+    "We develop reliable mobile applications designed for usability, performance, and seamless user experience.",
+  icon: <Smartphone size={22} />,
+},
+{
+  id: 4,
+  title: "Tech Consultancy",
+  desc:
+    "We help businesses make the right technology decisions through clear guidance, planning, and solution strategy.",
+  icon: <Briefcase size={22} />,
+},
+{
+  id: 5,
+  title: "Web Audit",
+  desc:
+    "We analyze existing websites to identify gaps in performance, security, clarity, and overall user experience.",
+  icon: <Search size={22} />,
+},
+{
+  id: 6,
+  title: "Security Solutions",
+  desc:
+    "We implement essential digital security measures to protect systems, data, and user trust across platforms.",
+  icon: <Shield size={22} />,
+},
+
   ];
 
   return (
@@ -47,9 +77,8 @@ export default function CreativeDesign() {
         Creative Design Solution<span className="text-red-600">:</span>
       </h3>
 
-      <p className="max-w-2xl text-sm text-gray-400 mb-16">
-        Pizza ipsum dolor meat lovers buffalo. Extra broccoli parmesan ricotta
-        garlic dolor sauce marinara Chicago marinara.
+      <p className="max-w-33xl text-md text-gray-400 mb-16">
+        A focused set of digital services designed to bring clarity, security, and scalability to your business.
       </p>
 
       {/* Cards */}

@@ -42,7 +42,7 @@ export default function AboutHeroSection() {
             font-light
             text-white
           ">
-            The People Behind
+            The Vission Behind
           </h1>
 
           <h2 className="

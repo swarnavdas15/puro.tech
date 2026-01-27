@@ -103,16 +103,16 @@ useEffect(() => {
               <span className="text-red-600">.</span>
             </h2>
 
-            <p className="text-gray-400 max-w-lg leading-relaxed">
-              Pizza ipsum dolor meat lovers buffalo. Extra broccoli parmesan
-              ricotta garlic dolor sauce marinara Chicago marinara.
-            </p>
+          <p className="text-gray-400 max-w-lg leading-relaxed">
+  Have a project in mind or need clarity around technology?  
+  Let’s talk about how secure, scalable digital solutions can support your goals.
+</p>
 
-            <ul className="space-y-4 text-white/80">
-              <li>• Stygar@help.com</li>
-              <li>• +1 (555) 123-4567</li>
-              <li>• 5987 Mid Rivers Mall Dr., St. Charles</li>
-            </ul>
+<ul className="space-y-4 list-disc  text-white/80">
+  <li> puro.tech.ofcl@gmail.com</li>
+  <li> +91- 88892 87261</li>
+  <li> Tollygunj, Thakurpukur, WB 700093, India</li>
+</ul>
           </div>
 
           {/* ================= RIGHT FORM (FLIP CARD) ================= */}
@@ -186,7 +186,6 @@ useEffect(() => {
     ▼
   </span>
 </div>
-
                 <textarea
                   placeholder="Discussion"
                   rows="5"

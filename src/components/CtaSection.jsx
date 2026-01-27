@@ -46,9 +46,8 @@ export default function CtaSection() {
             </h2>
 
             <p className="text-gray-400 leading-relaxed max-w-lg">
-              Pizza ipsum dolor meat lovers buffalo. Extra broccoli parmesan
-              ricotta garlic dolor sauce marinara Chicago marinara. Tomato dolor
-              pesto pesto Bianca pesto roll onions.
+              Have an idea or a challenge you’re working on?
+Let’s explore how the right digital solution can bring clarity, security, and scalability to your business.
             </p>
 
             {/* Input */}

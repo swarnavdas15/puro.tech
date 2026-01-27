@@ -5,27 +5,29 @@ export default function JourneySection() {
     {
       id: "1",
       title: "Discover",
-      desc: "Pizza ipsum dolor meat lovers buffalo. Extra broccoli parmesan.",
+      desc: "We identified gaps where businesses had technology but lacked clarity and direction.",
       position: "left",
     },
     {
       id: "2",
-      title: "Discover",
-      desc: "Pizza ipsum dolor meat lovers buffalo. Extra broccoli parmesan.",
+      title: "Design",
+      desc: "We started shaping digital solutions focused on structure, usability, and trust.",
       position: "right",
     },
     {
       id: "3",
-      title: "Discover",
-      desc: "Pizza ipsum dolor meat lovers buffalo. Extra broccoli parmesan.",
+      title: "Build",
+      desc: "We developed scalable systems with strong foundations in performance and security.",
       position: "left",
     },
     {
       id: "4",
-      title: "Discover",
-      desc: "Pizza ipsum dolor meat lovers buffalo. Extra broccoli parmesan.",
+      title: "Evolve",
+      desc: "We integrated AI, automation, and consultancy to support long-term growth.",
       position: "right",
     },
+
+
   ];
 
   return (
@@ -38,9 +40,8 @@ export default function JourneySection() {
             Our Journey<span className="text-red-600">.</span>
           </h2>
           <p className="mt-6 text-gray-400 leading-relaxed">
-            Pizza ipsum dolor meat lovers buffalo. Extra broccoli parmesan
-            ricotta garlic dolor sauce marinara Chicago marinara. Tomato dolor
-            pesto pesto Bianca pesto roll onions.
+            We identified gaps where businesses had technology but lacked clarity,
+and evolved to build secure, scalable digital systems with intelligence and purpose.
           </p>
         </div>
 
@@ -105,11 +106,10 @@ export default function JourneySection() {
             {steps.map((step) => (
               <div
                 key={step.id}
-                className={`relative flex w-full ${
-                  step.position === "right"
-                    ? "justify-end"
-                    : "justify-start"
-                }`}
+                className={`relative flex w-full ${step.position === "right"
+                  ? "justify-end"
+                  : "justify-start"
+                  }`}
               >
                 <div className="max-w-sm">
                   <div className="flex items-start gap-6">

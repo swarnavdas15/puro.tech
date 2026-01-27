@@ -9,7 +9,7 @@ const testimonials = [
       "PURO Tech delivered beyond expectations. The design clarity and development speed were exceptional.",
     rating: 5,
     avatar: "/testimonials/rahul.jpg",
-    link: "https://www.linkedin.com/in/rahulmehta",
+    link: "#",
   },
   {
     id: 2,
@@ -19,7 +19,7 @@ const testimonials = [
       "Their team understands both business and tech. The final product was clean, scalable, and fast.",
     rating: 5,
     avatar: "/testimonials/ananya.jpg",
-    link: "https://www.linkedin.com/in/ananyasharma",
+    link: "#",
   },
   {
     id: 3,
@@ -29,7 +29,7 @@ const testimonials = [
       "From idea to execution, everything was smooth. PURO feels like an extended in-house team.",
     rating: 4,
     avatar: "/testimonials/arjun.jpg",
-    link: "https://www.linkedin.com/in/arjunpatel",
+    link: "#",
   },
 ];
 
@@ -88,7 +88,7 @@ export default function TestimonialsSection() {
 
   return (
     <section className="relative w-full py-24 bg-gradient-to-br from-black via-[#120305] to-black overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6">
+      <div className="max-w-[90%] mx-auto px-6">
 
         {/* Header */}
         <div className="mb-16 max-w-2xl">

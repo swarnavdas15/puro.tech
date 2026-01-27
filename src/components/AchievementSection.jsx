@@ -3,29 +3,30 @@ import { useEffect, useState } from "react";
 export default function AchievementsSection() {
   const achievements = [
     {
-      id: 1,
-      title: "Best Digital Agency",
-      desc: "Pizza ipsum dolor meat lovers buffalo. Extra broccoli parmesan.",
-      big: "2021",
-    },
-    {
-      id: 2,
-      title: "Innovation Design",
-      desc: "Pizza ipsum dolor meat lovers buffalo. Extra broccoli parmesan.",
-      big: "2025",
-    },
-    {
-      id: 3,
-      title: "Client Satisfaction Leader",
-      desc: "Pizza ipsum dolor meat lovers buffalo. Extra broccoli parmesan.",
-      big: "2025",
-    },
-    {
-      id: 4,
-      title: "Growth Company of the Year",
-      desc: "Pizza ipsum dolor meat lovers buffalo. Extra broccoli parmesan.",
-      big: "2025",
-    },
+  id: 1,
+  title: "Web & Digital Solutions",
+  desc: "Designing and developing secure, scalable websites and digital platforms focused on clarity, performance, and trust.",
+  big: "2023",
+},
+{
+  id: 2,
+  title: "AI & Automation",
+  desc: "Implementing practical AI automations that simplify workflows, reduce manual effort, and improve efficiency.",
+  big: "2024",
+},
+{
+  id: 3,
+  title: "Tech Consultancy",
+  desc: "Helping businesses make the right technology decisions with clear guidance, audits, and solution planning.",
+  big: "2024",
+},
+{
+  id: 4,
+  title: "Security & Reliability",
+  desc: "Building digital systems with essential security practices to ensure stability, safety, and long-term reliability.",
+  big: "2025",
+},
+
   ];
 
   const [active, setActive] = useState(1);
@@ -42,7 +43,7 @@ export default function AchievementsSection() {
   const activeItem = achievements.find((a) => a.id === active);
 
   return (
-    <section className="relative w-full py-24 lg:py-28 bg-gradient-to-br from-black via-[#140406] to-black overflow-hidden">
+    <section className="relative w-full lg:h-[] md:h-[90vh] py-24 lg:py-28 bg-gradient-to-br border-collapse-collapse from-black via-[#140406] to-black overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-20 items-start">
 
         {/* LEFT */}
@@ -62,8 +63,8 @@ export default function AchievementsSection() {
             >
               {/* 20 */}
               <span className="
-                text-[96px] sm:text-[120px]
-                lg:text-[200px] text-gray-600
+                text-[96px] font-extrabold mask-linear-from-neutral-50 sm:text-[120px]
+                lg:text-[200px] text-gray-400
                 font-bold
                 lg:translate-y-[-100px]
               ">
@@ -72,7 +73,7 @@ export default function AchievementsSection() {
 
               {/* 25 */}
               <span className="
-                text-[120px] sm:text-[150px]
+                text-[120px] font-extrabold text-red-550 sm:text-[150px]
                 lg:text-[215px]
                 font-bold
                 -mt-4
@@ -85,10 +86,10 @@ export default function AchievementsSection() {
             {/* DOT CLUSTER */}
             <div
               className="
-                absolute
+                absolute 
                 right-0 top-1/2
                 translate-y-[-50%]
-                lg:right-[55%] lg:top-[15%]
+                lg:right-[50%] lg:top-[15%]
                 grid grid-cols-3 gap-2
               "
             >

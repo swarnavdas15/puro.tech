@@ -4,41 +4,42 @@ import { Code2 } from "lucide-react";
 export default function OurDreamSection() {
   const cards = [
     {
-      id: 1,
-      title: "Best Digital Agency",
-      desc:
-        "Pizza ipsum dolor meat lovers buffalo. Sauce string red tomatoes tossed. Aussie fresh and lasagna and roll tomatoes banana meatball thin. Pan chicken black burnt pizza. Pesto banana bell pan ricotta sautéed. Pineapple party party onions rib.",
-    },
-    {
-      id: 2,
-      title: "Best Digital Agency",
-      desc:
-        "Pizza ipsum dolor meat lovers buffalo. Sauce string red tomatoes tossed. Aussie fresh and lasagna and roll tomatoes banana meatball thin. Pan chicken black burnt pizza. Pesto banana bell pan ricotta sautéed. Pineapple party party onions rib.",
-    },
-    {
-      id: 3,
-      title: "Best Digital Agency",
-      desc:
-        "Pizza ipsum dolor meat lovers buffalo. Sauce string red tomatoes tossed. Aussie fresh and lasagna and roll tomatoes banana meatball thin. Pan chicken black burnt pizza. Pesto banana bell pan ricotta sautéed. Pineapple party party onions rib.",
-    },
-    {
-      id: 4,
-      title: "Best Digital Agency",
-      desc:
-        "Pizza ipsum dolor meat lovers buffalo. Sauce string red tomatoes tossed. Aussie fresh and lasagna and roll tomatoes banana meatball thin. Pan chicken black burnt pizza. Pesto banana bell pan ricotta sautéed. Pineapple party party onions rib.",
-    },
-    {
-      id: 5,
-      title: "Best Digital Agency",
-      desc:
-        "Pizza ipsum dolor meat lovers buffalo. Sauce string red tomatoes tossed. Aussie fresh and lasagna and roll tomatoes banana meatball thin. Pan chicken black burnt pizza. Pesto banana bell pan ricotta sautéed. Pineapple party party onions rib.",
-    },
-    {
-      id: 6,
-      title: "Best Digital Agency",
-      desc:
-        "Pizza ipsum dolor meat lovers buffalo. Sauce string red tomatoes tossed. Aussie fresh and lasagna and roll tomatoes banana meatball thin. Pan chicken black burnt pizza. Pesto banana bell pan ricotta sautéed. Pineapple party party onions rib.",
-    },
+  id: 1,
+  title: "Build With Purpose",
+  desc:
+    "We aim to build digital solutions that solve real problems, not just look good. Every product we create is driven by clarity, intent, and long-term value.",
+},
+{
+  id: 2,
+  title: "Technology With Clarity",
+  desc:
+    "Our dream is to remove confusion from technology by designing systems that are easy to understand, reliable to use, and practical for businesses.",
+},
+{
+  id: 3,
+  title: "Secure by Design",
+  desc:
+    "We believe security should not be an afterthought. Our vision is to make secure development a natural part of every digital product we build.",
+},
+{
+  id: 4,
+  title: "Intelligent Systems",
+  desc:
+    "We strive to integrate AI and automation in a meaningful way, creating intelligent systems that support growth without adding complexity.",
+},
+{
+  id: 5,
+  title: "Trusted Partnerships",
+  desc:
+    "Beyond projects, our goal is to build long-term partnerships where technology becomes a reliable support system for business decisions.",
+},
+{
+  id: 6,
+  title: "Future-Ready Solutions",
+  desc:
+    "We dream of creating scalable and adaptable digital platforms that help businesses stay relevant, resilient, and ready for the future.",
+},
+
   ];
 
   return (
