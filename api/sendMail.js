@@ -118,24 +118,30 @@ await transporter.sendMail({
         </h2>
 
         <!-- CENTER : MESSAGE -->
-        <div style="text-align:center; flex:1;">
-          <p style="
-            margin:0;
-            font-size:16px;
-            font-weight:600;
-            color:#e5e5e5;
-          ">
-            We’ve successfully received your message
-          </p>
+        <!-- CENTER : MESSAGE -->
+<div style="
+  text-align:center;
+  flex:1;
+  margin-top:6px;   /* 👈 THIS IS THE FIX */
+">
+  <p style="
+    margin:0;
+    font-size:16px;
+    font-weight:600;
+    color:#e5e5e5;
+  ">
+    We’ve successfully received your message
+  </p>
 
-          <p style="
-            margin:4px 0 0;
-            font-size:13px;
-            color:#a3a3a3;
-          ">
-            Our team is reviewing it and will contact you shortly
-          </p>
-        </div>
+  <p style="
+    margin:4px 0 0;
+    font-size:13px;
+    color:#a3a3a3;
+  ">
+    Our team is reviewing it and will contact you shortly
+  </p>
+</div>
+
 
         <!-- RIGHT SPACER -->
         <div style="width:90px;"></div>
