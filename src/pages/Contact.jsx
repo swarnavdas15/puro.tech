@@ -13,6 +13,19 @@ export default function Contact() {
     if (emailFromUrl) setEmail(emailFromUrl);
   }, [location.search]);
 
+   useEffect(() => {
+    if (location.hash) {
+      const element = document.querySelector(location.hash);
+      if (element) {
+        element.scrollIntoView({
+          behavior: "smooth",
+          block: "start"
+        });
+      }
+    }
+  }, [location]);
+  
+
   return (
       <>
    
@@ -21,7 +34,7 @@ export default function Contact() {
       {/* Hero / Heading / Mascot */}
       <ContactForm email={email} />
     </section>
-   <FaqSection />
+   <FaqSection id='FAQ' />
     </>
   );
 }

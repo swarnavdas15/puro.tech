@@ -1,8 +1,24 @@
-import React from "react";
+import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import CreativeDesign from "../components/CreativeDesign.jsx";
 import FeaturedProjects from "../components/FeaturedProjects.jsx";
 import TestimonialsSection from "../components/TestimonalsSection.jsx";
 export default function Services() {
+  
+  const location = useLocation();
+
+   useEffect(() => {
+    if (location.hash) {
+      const element = document.querySelector(location.hash);
+      if (element) {
+        element.scrollIntoView({
+          behavior: "smooth",
+          block: "start"
+        });
+      }
+    }
+  }, [location]);
+
   return (
     <>
     <main className="relative w-full min-h-screen bg-gradient-to-br from-black via-[#140406] to-black overflow-hidden">
@@ -82,7 +98,7 @@ export default function Services() {
       {/* AMBIENT GLOW */}
       <div className="absolute -right-40 top-1/3 w-[420px] h-[420px] bg-red-600/20 blur-[160px] rounded-full" />
     </main>
-        <FeaturedProjects />
+        <FeaturedProjects id='Featured' />
         <TestimonialsSection />
     </>
   );
