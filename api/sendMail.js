@@ -86,7 +86,7 @@ await transporter.sendMail({
   to: email,
   subject: "We’ve received your message — PURO TECH",
   html: `
-  <div style="background:#0b0203; padding:30px; font-family:Arial, Helvetica, sans-serif;">
+   <div style="background:#0b0203; padding:30px; font-family:Arial, Helvetica, sans-serif;">
     <div style="
       max-width:640px;
       margin:auto;
@@ -98,7 +98,7 @@ await transporter.sendMail({
 
       <!-- HEADER -->
       <div style="
-        padding:22px 26px;
+        padding:20px 26px;
         background:#000;
         border-bottom:1px solid #2a0a0c;
         display:flex;
@@ -108,8 +108,8 @@ await transporter.sendMail({
 
         <!-- LEFT : LOGO -->
         <h2 style="
-          margin:0;
-          font-size:24px;
+          margin:-60px 0px 0;
+          font-size:20px;
           letter-spacing:1px;
           white-space:nowrap;
         ">
@@ -122,11 +122,11 @@ await transporter.sendMail({
 <div style="
   text-align:center;
   flex:1;
-  margin-top:6px;   /* 👈 THIS IS THE FIX */
+  margin-top:80px;   /* 👈 THIS IS THE FIX */
 ">
   <p style="
-    margin:30px;
-    font-size:16px;
+    margin:0px;
+    font-size:17px;
     font-weight:600;
     color:#e5e5e5;
   ">
@@ -148,7 +148,7 @@ await transporter.sendMail({
       </div>
 
       <!-- BODY -->
-      <div style="padding:30px; color:#e0e0e0; line-height:1.7; font-size:15px;">
+      <div style="padding:45px; height: 80vh; color:#e0e0e0; line-height:1.7; font-size:15px;">
 
         <!-- GREETING + MASCOTS -->
         <div style="
@@ -158,7 +158,7 @@ await transporter.sendMail({
         ">
 
           <!-- TEXT -->
-          <div style="max-width:75%; z-index:2;">
+          <div style="max-width:85%; z-index:2;">
             <p style="margin:0;">
               Hi <strong>${name}</strong>,
             </p>
@@ -180,19 +180,19 @@ await transporter.sendMail({
             display:flex;
             gap:12px;
             align-items:flex-end;
-            opacity:0.6;
+            opacity:1;
             z-index:0;
             margin-left:12px;
           ">
             <img
               src="https://raw.githubusercontent.com/swarnavdas15/personal-doc/refs/heads/main/document/boy-mascot.png"
-              height="64"
+              height="110"
               alt="Mascot"
               style="display:block;"
             />
             <img
               src="https://raw.githubusercontent.com/swarnavdas15/personal-doc/refs/heads/main/document/girl-mascot.png"
-              height="64"
+              height="110"
               alt="Mascot"
               style="display:block;"
             />
