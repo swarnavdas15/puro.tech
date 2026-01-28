@@ -98,53 +98,103 @@ await transporter.sendMail({
 
       <!-- HEADER -->
       <div style="
-        padding:28px;
-        text-align:center;
+        padding:22px 26px;
         background:#000;
         border-bottom:1px solid #2a0a0c;
+        display:flex;
+        align-items:center;
+        justify-content:space-between;
       ">
-        <h1 style="margin:0; font-size:26px; letter-spacing:1px;">
-          <span style="color:#fff;">PURO</span>
+
+        <!-- LEFT : LOGO -->
+        <h2 style="
+          margin:0;
+          font-size:24px;
+          letter-spacing:1px;
+          white-space:nowrap;
+        ">
+          <span style="color:#ffffff;">PURO</span>
           <span style="color:#ef4444;"> TECH</span>
-        </h1>
+        </h2>
 
-        <p style="
-          margin:12px 0 0;
-          font-size:16px;
-          font-weight:600;
-          color:#e5e5e5;
-        ">
-          We’ve received your message
-        </p>
+        <!-- CENTER : MESSAGE -->
+        <div style="text-align:center; flex:1;">
+          <p style="
+            margin:0;
+            font-size:16px;
+            font-weight:600;
+            color:#e5e5e5;
+          ">
+            We’ve successfully received your message
+          </p>
 
-        <p style="
-          margin:6px 0 0;
-          font-size:13px;
-          color:#a3a3a3;
-        ">
-          Our team is reviewing your request
-        </p>
+          <p style="
+            margin:4px 0 0;
+            font-size:13px;
+            color:#a3a3a3;
+          ">
+            Our team is reviewing it and will contact you shortly
+          </p>
+        </div>
+
+        <!-- RIGHT SPACER -->
+        <div style="width:90px;"></div>
       </div>
 
       <!-- BODY -->
       <div style="padding:30px; color:#e0e0e0; line-height:1.7; font-size:15px;">
 
-        <p style="margin-top:0;">
-          Hello <strong>${name}</strong>,
-        </p>
+        <!-- GREETING + MASCOTS -->
+        <div style="
+          display:flex;
+          justify-content:space-between;
+          align-items:flex-start;
+        ">
 
-        <p>
-          Thank you for reaching out to <strong>PURO TECH</strong>.
-          We have successfully received your inquiry regarding
-          <strong>${service || "our digital services"}</strong>.
-        </p>
+          <!-- TEXT -->
+          <div style="max-width:75%; z-index:2;">
+            <p style="margin:0;">
+              Hi <strong>${name}</strong>,
+            </p>
 
-        <p>
-          A member of our team will review your request and respond shortly
-          with the next steps.
-        </p>
+            <p>
+              Thank you for contacting <strong>PURO TECH</strong>.
+              Your inquiry regarding
+              <strong>${service || "our services"}</strong>
+              has been successfully received.
+            </p>
 
-        <!-- SOFT DIVIDER -->
+            <p>
+              Our team will get back to you shortly with clear next steps.
+            </p>
+          </div>
+
+          <!-- MASCOTS -->
+          <div style="
+            display:flex;
+            gap:12px;
+            align-items:flex-end;
+            opacity:0.6;
+            z-index:0;
+            margin-left:12px;
+          ">
+            <img
+              src="https://raw.githubusercontent.com/swarnavdas15/personal-doc/refs/heads/main/document/boy-mascot.png"
+              height="64"
+              alt="Mascot"
+              style="display:block;"
+            />
+            <img
+              src="https://raw.githubusercontent.com/swarnavdas15/personal-doc/refs/heads/main/document/girl-mascot.png"
+              height="64"
+              alt="Mascot"
+              style="display:block;"
+            />
+          </div>
+
+        </div>
+
+        <!-- DIVIDER -->
         <hr style="
           margin:26px 0;
           border:none;
@@ -160,7 +210,7 @@ await transporter.sendMail({
           border:1px solid #2a0a0c;
         ">
           <p style="margin:0 0 12px; font-size:14px; color:#cfcfcf;">
-            Need a faster response?
+            Need a quicker response?
           </p>
 
           <a
@@ -177,35 +227,15 @@ await transporter.sendMail({
               font-size:14px;
             "
           >
-            Chat with us on WhatsApp
+            Chat on WhatsApp
           </a>
-        </div>
-
-        <!-- MASCOTS (LOW VISUAL WEIGHT) -->
-        <div style="
-          margin-top:22px;
-          display:flex;
-          justify-content:flex-end;
-          gap:12px;
-          opacity:0.7;
-        ">
-          <img
-            src="https://raw.githubusercontent.com/swarnavdas15/personal-doc/refs/heads/main/document/boy-mascot.png"
-            height="60"
-            alt="Mascot"
-          />
-          <img
-            src="https://raw.githubusercontent.com/swarnavdas15/personal-doc/refs/heads/main/document/girl-mascot.png"
-            height="60"
-            alt="Mascot"
-          />
         </div>
 
         <p style="margin-top:26px;">
           Regards,<br />
           <strong>PURO TECH Team</strong><br />
           <span style="font-size:13px; color:#9a9a9a;">
-            Secure • Scalable • Modern Solutions
+            Secure • Scalable • Modern Digital Solutions
           </span>
         </p>
       </div>
@@ -226,7 +256,6 @@ await transporter.sendMail({
   </div>
   `,
 });
-
 
 
     return res.status(200).json({ success: true });
