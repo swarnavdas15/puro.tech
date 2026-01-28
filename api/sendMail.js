@@ -117,7 +117,7 @@ await transporter.sendMail({
           <span style="color:#ef4444;"> TECH</span>
         </h2>
 
-        <!-- CENTER : MESSAGE -->
+        
         <!-- CENTER : MESSAGE -->
 <div style="
   text-align:center;
@@ -125,7 +125,7 @@ await transporter.sendMail({
   margin-top:6px;   /* 👈 THIS IS THE FIX */
 ">
   <p style="
-    margin:0;
+    margin:30px;
     font-size:16px;
     font-weight:600;
     color:#e5e5e5;
