@@ -146,7 +146,7 @@ await transporter.sendMail({
       </div>
 
       <!-- BODY -->
-      <div style="padding:45px; height: 80vh; color:#e0e0e0; line-height:1.7; font-size:15px;">
+      <div style="padding:45px;  color:#e0e0e0; line-height:1.7; font-size:15px;">
 
         <!-- GREETING + MASCOTS -->
         <div style="
@@ -200,7 +200,7 @@ await transporter.sendMail({
 
         <!-- DIVIDER -->
         <hr style="
-          margin:26px 0;
+          margin:22px 0;
           border:none;
           border-top:1px solid #2a0a0c;
         " />
@@ -235,7 +235,7 @@ await transporter.sendMail({
           </a>
         </div>
 
-        <p style="margin-top:26px;">
+        <p style="margin:18px 0 0 0;">
           Regards,<br />
           <strong>PURO TECH Team</strong><br />
           <span style="font-size:13px; color:#9a9a9a;">
