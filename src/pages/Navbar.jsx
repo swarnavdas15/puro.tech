@@ -34,7 +34,7 @@ const handleHomeClick = (e) => {
     PURO
   </span>
   <span className="text-red-600 font-bold tracking-wide text-2xl">
-    TECH
+    TECH.
   </span>
 </div>
 
@@ -85,7 +85,7 @@ const handleHomeClick = (e) => {
             <span className="text-white flex align-baseline items-center gap-1 font-bold tracking-wide text-2xl">
               PURO
               <span className="text-red-600  font-bold tracking-wide text-xl">
-              TECH
+              TECH.
             </span>
             </span>
             

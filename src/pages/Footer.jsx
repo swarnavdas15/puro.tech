@@ -22,7 +22,7 @@ export default function Footer() {
               PURO
             </span>
             <span className="text-red-600 font-bold tracking-wide text-2xl">
-              TECH
+              TECH.
             </span>
           </div>
 
