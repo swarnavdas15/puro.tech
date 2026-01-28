@@ -103,7 +103,7 @@ await transporter.sendMail({
         border-bottom:1px solid #2a0a0c;
         display:flex;
         align-items:center;
-        gap:12px;
+        gap:5px;
         justify-content:space-between;
       ">
 
