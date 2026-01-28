@@ -81,10 +81,49 @@ const whatsappUrl = `https://wa.me/918889287261?text=${encodeURIComponent(
 
     /* ================= AUTO REPLY (USER) ================= */
 
+await transporter.sendMail({
+  from: `"PURO TECH" <${process.env.MAIL_USER}>`,
+  to: email,
+  subject: "We’ve received your message — PURO TECH",
+  html: `
+    <div style="font-family: Arial, Helvetica, sans-serif; background:#0b0203; padding:32px;">
+      <div style="max-width:680px; margin:auto; background:#0f0f0f; border-radius:18px; border:1px solid #2a0a0c; overflow:hidden;">
 
+        <!-- HEADER : BRAND + MESSAGE -->
+        <div style="
+          padding:26px 28px;
+          background:linear-gradient(135deg,#000,#140406);
+          border-bottom:1px solid #2a0a0c;
+          text-align:center;
+        ">
+          <h2 style="margin:0; font-weight:700; letter-spacing:1px;">
+            <span style="color:#ffffff; font-size:26px;">PURO</span>
+            <span style="color:#ef4444; font-size:24px;"> TECH</span>
+          </h2>
+
+          <p style="
+            margin:10px 0 0;
+            font-size:18px;
+            font-weight:600;
+            color:#e5e5e5;
+          ">
+            We’ve successfully received your message
+          </p>
+
+          <p style="
+            margin:6px 0 0;
+            font-size:13px;
+            color:#b3b3b3;
+          ">
+            Our team is reviewing it and will connect with you shortly
+          </p>
+        </div>
+
+        <!-- BODY -->
+        <!-- BODY -->
 <div style="padding:32px; color:#e0e0e0; line-height:1.7;">
 
-
+  <!-- TEXT CONTENT -->
   <p style="font-size:15px; margin-top:0;">
     Hi <strong>${name}</strong>,
   </p>
@@ -100,7 +139,7 @@ const whatsappUrl = `https://wa.me/918889287261?text=${encodeURIComponent(
     Our team will get back to you shortly with clear next steps.
   </p>
 
- 
+  <!-- MASCOTS (PAIR, LOWER PRIORITY) -->
   <div
     style="
       margin-top:26px;
@@ -124,7 +163,7 @@ const whatsappUrl = `https://wa.me/918889287261?text=${encodeURIComponent(
     />
   </div>
 
- 
+  <!-- ACTION CARD -->
   <div style="
     margin:32px 0;
     padding:22px;
@@ -172,6 +211,23 @@ const whatsappUrl = `https://wa.me/918889287261?text=${encodeURIComponent(
   </p>
 </div>
 
+
+        <!-- FOOTER -->
+        <div style="
+          padding:16px 26px;
+          background:#000;
+          border-top:1px solid #2a0a0c;
+          font-size:12px;
+          color:#888;
+          text-align:center;
+        ">
+          This is an automated confirmation email. No reply is required.
+        </div>
+
+      </div>
+    </div>
+  `,
+});
 
 
     return res.status(200).json({ success: true });
