@@ -86,148 +86,147 @@ await transporter.sendMail({
   to: email,
   subject: "We’ve received your message — PURO TECH",
   html: `
-    <div style="font-family: Arial, Helvetica, sans-serif; background:#0b0203; padding:32px;">
-      <div style="max-width:680px; margin:auto; background:#0f0f0f; border-radius:18px; border:1px solid #2a0a0c; overflow:hidden;">
+  <div style="background:#0b0203; padding:30px; font-family:Arial, Helvetica, sans-serif;">
+    <div style="
+      max-width:640px;
+      margin:auto;
+      background:#0f0f0f;
+      border-radius:16px;
+      border:1px solid #2a0a0c;
+      overflow:hidden;
+    ">
 
-        <!-- HEADER : BRAND + MESSAGE -->
-        <div style="
-          padding:26px 28px;
-          background:linear-gradient(135deg,#000,#140406);
-          border-bottom:1px solid #2a0a0c;
-          text-align:center;
+      <!-- HEADER -->
+      <div style="
+        padding:28px;
+        text-align:center;
+        background:#000;
+        border-bottom:1px solid #2a0a0c;
+      ">
+        <h1 style="margin:0; font-size:26px; letter-spacing:1px;">
+          <span style="color:#fff;">PURO</span>
+          <span style="color:#ef4444;"> TECH</span>
+        </h1>
+
+        <p style="
+          margin:12px 0 0;
+          font-size:16px;
+          font-weight:600;
+          color:#e5e5e5;
         ">
-          <h2 style="margin:0; font-weight:700; letter-spacing:1px;">
-            <span style="color:#ffffff; font-size:26px;">PURO</span>
-            <span style="color:#ef4444; font-size:24px;"> TECH</span>
-          </h2>
+          We’ve received your message
+        </p>
 
-          <p style="
-            margin:10px 0 0;
-            font-size:18px;
-            font-weight:600;
-            color:#e5e5e5;
-          ">
-            We’ve successfully received your message
-          </p>
-
-          <p style="
-            margin:6px 0 0;
-            font-size:13px;
-            color:#b3b3b3;
-          ">
-            Our team is reviewing it and will connect with you shortly
-          </p>
-        </div>
-
-        <!-- BODY -->
-        <!-- BODY -->
-<div style="padding:32px; color:#e0e0e0; line-height:1.7;">
-
-  <!-- TEXT CONTENT -->
-  <p style="font-size:15px; margin-top:0;">
-    Hi <strong>${name}</strong>,
-  </p>
-
-  <p>
-    Thank you for contacting <strong>PURO TECH</strong>.
-    Your inquiry regarding
-    <strong>${service || "our services"}</strong>
-    has been successfully received.
-  </p>
-
-  <p>
-    Our team will get back to you shortly with clear next steps.
-  </p>
-
-  <!-- MASCOTS (PAIR, LOWER PRIORITY) -->
-  <div
-    style="
-      margin-top:26px;
-      display:flex;
-      justify-content:flex-end;
-      gap:16px;
-      opacity:0.85;
-    "
-  >
-    <img
-      src="https://raw.githubusercontent.com/swarnavdas15/personal-doc/refs/heads/main/document/boy-mascot.png"
-      alt="Roni"
-      height="72"
-      style="display:block;"
-    />
-    <img
-      src="https://raw.githubusercontent.com/swarnavdas15/personal-doc/refs/heads/main/document/girl-mascot.png"
-      alt="Puchu"
-      height="72"
-      style="display:block;"
-    />
-  </div>
-
-  <!-- ACTION CARD -->
-  <div style="
-    margin:32px 0;
-    padding:22px;
-    background:#000;
-    border-radius:16px;
-    border:1px solid #2a0a0c;
-    text-align:center;
-  ">
-    <p style="margin:0 0 14px; font-size:14px; color:#ccc;">
-      Need a quicker response?
-    </p>
-
-    <a
-      href="https://wa.me/918889287261?text=Hi%20PURO%20TECH,%20I%20just%20submitted%20a%20query%20on%20your%20website."
-      target="_blank"
-      style="
-        display:inline-flex;
-        align-items:center;
-        gap:10px;
-        padding:12px 30px;
-        background:#25D366;
-        color:#000;
-        text-decoration:none;
-        border-radius:999px;
-        font-weight:600;
-        font-size:14px;
-      "
-    >
-      <img
-        src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
-        alt="WhatsApp"
-        width="18"
-        height="18"
-        style="display:block;"
-      />
-      Chat on WhatsApp
-    </a>
-  </div>
-
-  <p style="margin-top:28px;">
-    — The PURO Tech Team<br />
-    <span style="font-size:13px; color:#9a9a9a;">
-      Secure • Scalable • Modern Digital Solutions
-    </span>
-  </p>
-</div>
-
-
-        <!-- FOOTER -->
-        <div style="
-          padding:16px 26px;
-          background:#000;
-          border-top:1px solid #2a0a0c;
-          font-size:12px;
-          color:#888;
-          text-align:center;
+        <p style="
+          margin:6px 0 0;
+          font-size:13px;
+          color:#a3a3a3;
         ">
-          This is an automated confirmation email. No reply is required.
-        </div>
-
+          Our team is reviewing your request
+        </p>
       </div>
+
+      <!-- BODY -->
+      <div style="padding:30px; color:#e0e0e0; line-height:1.7; font-size:15px;">
+
+        <p style="margin-top:0;">
+          Hello <strong>${name}</strong>,
+        </p>
+
+        <p>
+          Thank you for reaching out to <strong>PURO TECH</strong>.
+          We have successfully received your inquiry regarding
+          <strong>${service || "our digital services"}</strong>.
+        </p>
+
+        <p>
+          A member of our team will review your request and respond shortly
+          with the next steps.
+        </p>
+
+        <!-- SOFT DIVIDER -->
+        <hr style="
+          margin:26px 0;
+          border:none;
+          border-top:1px solid #2a0a0c;
+        " />
+
+        <!-- CTA -->
+        <div style="
+          text-align:center;
+          padding:22px;
+          background:#000;
+          border-radius:14px;
+          border:1px solid #2a0a0c;
+        ">
+          <p style="margin:0 0 12px; font-size:14px; color:#cfcfcf;">
+            Need a faster response?
+          </p>
+
+          <a
+            href="https://wa.me/918889287261?text=Hi%20PURO%20TECH,%20I%20just%20submitted%20a%20query%20on%20your%20website."
+            target="_blank"
+            style="
+              display:inline-block;
+              padding:12px 28px;
+              background:#25D366;
+              color:#000;
+              text-decoration:none;
+              border-radius:999px;
+              font-weight:600;
+              font-size:14px;
+            "
+          >
+            Chat with us on WhatsApp
+          </a>
+        </div>
+
+        <!-- MASCOTS (LOW VISUAL WEIGHT) -->
+        <div style="
+          margin-top:22px;
+          display:flex;
+          justify-content:flex-end;
+          gap:12px;
+          opacity:0.7;
+        ">
+          <img
+            src="https://raw.githubusercontent.com/swarnavdas15/personal-doc/refs/heads/main/document/boy-mascot.png"
+            height="60"
+            alt="Mascot"
+          />
+          <img
+            src="https://raw.githubusercontent.com/swarnavdas15/personal-doc/refs/heads/main/document/girl-mascot.png"
+            height="60"
+            alt="Mascot"
+          />
+        </div>
+
+        <p style="margin-top:26px;">
+          Regards,<br />
+          <strong>PURO TECH Team</strong><br />
+          <span style="font-size:13px; color:#9a9a9a;">
+            Secure • Scalable • Modern Solutions
+          </span>
+        </p>
+      </div>
+
+      <!-- FOOTER -->
+      <div style="
+        padding:14px;
+        text-align:center;
+        font-size:12px;
+        color:#777;
+        background:#000;
+        border-top:1px solid #2a0a0c;
+      ">
+        This is an automated confirmation email. Please do not reply.
+      </div>
+
     </div>
+  </div>
   `,
 });
+
 
 
     return res.status(200).json({ success: true });
