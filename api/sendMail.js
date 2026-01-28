@@ -86,7 +86,7 @@ await transporter.sendMail({
   to: email,
   subject: "We’ve received your message — PURO TECH",
   html: `
-   <div style="background:#0b0203; padding:30px; font-family:Arial, Helvetica, sans-serif;">
+  <div style="background:#0b0203; padding:30px; font-family:Arial, Helvetica, sans-serif;">
     <div style="
       max-width:640px;
       margin:auto;
@@ -102,19 +102,18 @@ await transporter.sendMail({
         background:#000;
         border-bottom:1px solid #2a0a0c;
         display:flex;
-        align-items:center;
         justify-content:space-between;
       ">
 
         <!-- LEFT : LOGO -->
         <h2 style="
-          margin:-60px 0px 0;
-          font-size:20px;
-          letter-spacing:1px;
+          margin:15px 0px 0;
+          font-size:10px;
+          letter-spacing:0px;
           white-space:nowrap;
         ">
           <span style="color:#ffffff;">PURO</span>
-          <span style="color:#ef4444;"> TECH</span>
+          <span style="color:#ef4444;"> TECH.</span>
         </h2>
 
         
@@ -125,8 +124,8 @@ await transporter.sendMail({
   margin-top:6px;
 ">
   <p style="
-    margin:6px 0 0 0;
-    font-size:14px;
+    margin:30px 0 0 0;
+    font-size:17px;
     font-weight:600;
     color:#e5e5e5;
   ">
