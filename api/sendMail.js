@@ -81,54 +81,70 @@ const whatsappUrl = `https://wa.me/918889287261?text=${encodeURIComponent(
 
     /* ================= AUTO REPLY (USER) ================= */
 
-  await transporter.sendMail({
+await transporter.sendMail({
   from: `"PURO TECH" <${process.env.MAIL_USER}>`,
   to: email,
   subject: "We’ve got your message — PURO TECH",
   html: `
     <div style="font-family: Arial, Helvetica, sans-serif; background:#0b0203; padding:32px;">
-      <div style="max-width:640px; margin:auto; background:#0f0f0f; border-radius:18px; border:1px solid #2a0a0c; overflow:hidden;">
+      <div style="max-width:680px; margin:auto; background:#0f0f0f; border-radius:18px; border:1px solid #2a0a0c; overflow:hidden;">
 
-        <!-- HEADER WITH MASCOTS -->
+        <!-- HEADER -->
         <div style="
-          padding:22px 26px;
+          padding:22px 26px 26px;
           background:linear-gradient(135deg,#000,#140406);
           border-bottom:1px solid #2a0a0c;
           display:flex;
-          align-items:center;
+          align-items:flex-start;
           justify-content:space-between;
         ">
 
-          <!-- Left Mascot -->
-          <img
-            src="https://raw.githubusercontent.com/swarnavdas15/personal-doc/refs/heads/main/document/boy-mascot.png"
-            alt="Roni"
-            height="64"
-            style="display:block;"
-          />
-
-          <!-- BRAND -->
-          <div style="text-align:center;">
+          <!-- LEFT : BRAND -->
+          <div style="flex:1;">
             <h2 style="margin:0; font-weight:700; letter-spacing:1px;">
               <span style="color:#ffffff; font-size:26px;">PURO</span>
               <span style="color:#ef4444; font-size:24px;"> TECH</span>
             </h2>
-            <p style="margin:6px 0 0; font-size:13px; color:#b3b3b3;">
+          </div>
+
+          <!-- CENTER : MESSAGE -->
+          <div style="flex:2; text-align:center; padding-top:10px;">
+            <p style="
+              margin:0;
+              font-size:18px;
+              font-weight:600;
+              color:#e5e5e5;
+            ">
               We’ve received your message
+            </p>
+            <p style="
+              margin:6px 0 0;
+              font-size:13px;
+              color:#b3b3b3;
+            ">
+              Our team is already reviewing it
             </p>
           </div>
 
-          <!-- Right Mascot -->
-          <img
-            src="https://raw.githubusercontent.com/swarnavdas15/personal-doc/refs/heads/main/document/girl-mascot.png"
-            alt="Puchu"
-            height="64"
-            style="display:block;"
-          />
+          <!-- RIGHT : MASCOTS -->
+          <div style="flex:1; display:flex; justify-content:flex-end; gap:10px;">
+            <img
+              src="https://raw.githubusercontent.com/swarnavdas15/personal-doc/refs/heads/main/document/boy-mascot.png"
+              alt="Roni"
+              height="52"
+              style="display:block;"
+            />
+            <img
+              src="https://raw.githubusercontent.com/swarnavdas15/personal-doc/refs/heads/main/document/girl-mascot.png"
+              alt="Puchu"
+              height="52"
+              style="display:block;"
+            />
+          </div>
         </div>
 
         <!-- BODY -->
-        <div style="padding:28px; color:#e0e0e0; line-height:1.7;">
+        <div style="padding:30px; color:#e0e0e0; line-height:1.7;">
 
           <p style="font-size:15px;">
             Hi <strong>${name}</strong>,
@@ -141,45 +157,53 @@ const whatsappUrl = `https://wa.me/918889287261?text=${encodeURIComponent(
           </p>
 
           <p>
-            Our team is currently reviewing the details and will reach out to you
-            shortly with clear next steps.
+            Our team will get back to you shortly with clear next steps.
           </p>
 
           <!-- ACTION CARD -->
           <div style="
-            margin:26px 0;
-            padding:18px;
+            margin:28px 0;
+            padding:20px;
             background:#000;
             border-radius:14px;
             border:1px solid #2a0a0c;
             text-align:center;
           ">
             <p style="margin:0 0 12px; font-size:14px; color:#ccc;">
-              Prefer a quicker conversation?
+              Need a quicker response?
             </p>
 
-            <a
-              href="https://wa.me/918889287261?text=Hi%20PURO%20TECH,%20I%20just%20submitted%20a%20query%20on%20your%20website."
-              target="_blank"
-              style="
-                display:inline-block;
-                padding:12px 28px;
-                background:#ef4444;
-                color:#ffffff;
-                text-decoration:none;
-                border-radius:999px;
-                font-weight:600;
-                font-size:14px;
-              "
-            >
-              Chat on WhatsApp
-            </a>
+           <a
+  href="https://wa.me/918889287261?text=Hi%20PURO%20TECH,%20I%20just%20submitted%20a%20query%20on%20your%20website."
+  target="_blank"
+  style="
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    padding:12px 26px;
+    background:#25D366;
+    color:#000;
+    text-decoration:none;
+    border-radius:999px;
+    font-weight:600;
+    font-size:14px;
+  "
+>
+  <img
+    src="https://raw.githubusercontent.com/swarnavdas15/personal-doc/refs/heads/main/document/icons8-whatsapp-50.png"
+    alt="WhatsApp"
+    width="18"
+    height="18"
+    style="display:block;"
+  />
+  Chat on WhatsApp
+</a>
           </div>
 
-          <p style="margin-top:30px;">
-            — The PURO Team<br />
+          <p style="margin-top:32px;">
+            — The PURO Tech Team<br />
             <span style="font-size:13px; color:#9a9a9a;">
-              Secure • Scalable • Thoughtful Digital Solutions
+              Secure • Scalable • Modern Digital Solutions
             </span>
           </p>
         </div>
