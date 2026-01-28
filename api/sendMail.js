@@ -121,6 +121,7 @@ await transporter.sendMail({
         
         <!-- CENTER : MESSAGE -->
 <div style="
+  align-items:justify-center;
   text-align:center;
   flex:1;
   margin-top:6px;
