@@ -5,7 +5,7 @@ import Footer from "./pages/Footer";
 import NotFound from "./components/NotFound";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import Disclaimer from "./pages/Disclaimer";
-
+import { useEffect } from "react";
 // Pages
 import Home from "./pages/Home";
 import Services from "./pages/Services";
@@ -16,6 +16,31 @@ import Contact from "./pages/Contact";
 import "./App.css";
 
 function App() {
+
+  useEffect(() => {
+  // Disable right click
+  const disableRightClick = (e) => e.preventDefault();
+  document.addEventListener("contextmenu", disableRightClick);
+
+  // Disable DevTools shortcuts
+  const disableKeys = (e) => {
+    if (
+      e.key === "F12" ||
+      (e.ctrlKey && e.shiftKey && ["I", "J", "C"].includes(e.key)) ||
+      (e.ctrlKey && e.key === "U")
+    ) {
+      e.preventDefault();
+    }
+  };
+  document.addEventListener("keydown", disableKeys);
+
+  return () => {
+    document.removeEventListener("contextmenu", disableRightClick);
+    document.removeEventListener("keydown", disableKeys);
+  };
+}, []);
+
+
   return (
     <>
       {/* Global */}

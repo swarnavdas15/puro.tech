@@ -25,7 +25,7 @@ const handleHomeClick = (e) => {
   return (
     <>
       {/* Navbar */}
-      <nav className="w-full fixed top-0 left-0 z-50 bg-transparent backdrop-blur-md">
+      <nav className="w-full fixed top-0 left-0 z-800 bg-transparent backdrop-blur-md">
         <div className="max-w-7xl mx-auto px-5 py-4 flex items-center justify-between">
 
           {/* Logo */}

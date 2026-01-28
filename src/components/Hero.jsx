@@ -150,7 +150,7 @@ const hoverPuchuText = "What would you like to build?";
   }, [fullText, speaker, prevText, prevSpeaker]);
 
   return (
-    <section className="relative font-sora min-h-screen w-full bg-gradient-to-br from-black via-[#1a0508] to-black overflow-hidden">
+    <section className="relative font-sora min-h-[110vh] w-full bg-gradient-to-br from-black via-[#1a0508] to-black overflow-hidden">
 
       {/* Background Brand Text */}
       <div className="absolute top-[-300px] inset-0 flex items-center justify-center md:justify-end md:pr-24 pointer-events-none select-none">

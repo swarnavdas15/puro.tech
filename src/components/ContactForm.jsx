@@ -168,10 +168,13 @@ useEffect(() => {
     <option value="" disabled className="bg-[#0b0203] text-neutral-800">
       Select Service
     </option>
+    <option className="bg-[#0b0203] text-red-300">Web Audit</option>
     <option className="bg-[#0b0203] text-red-300 ">Web Development</option>
     <option className="bg-[#0b0203] text-red-300">Mobile Apps</option>
     <option className="bg-[#0b0203] text-red-300">Automation</option>
-    <option className="bg-[#0b0203] text-red-300">UI / UX Design</option>
+    <option className="bg-[#0b0203] text-red-300">Tech Consultancy</option>
+    <option className="bg-[#0b0203] text-red-300">Security Solutions</option>
+    <option className="bg-[#0b0203] text-red-300">Other</option>
   </select>
 
   {/* Custom Arrow */}
