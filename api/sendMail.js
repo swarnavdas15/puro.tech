@@ -122,11 +122,11 @@ await transporter.sendMail({
 <div style="
   text-align:center;
   flex:1;
-  margin-top:80px;   /* 👈 THIS IS THE FIX */
+  margin-top:6px;
 ">
   <p style="
-    margin:0px;
-    font-size:17px;
+    margin:6px 0 0 0;
+    font-size:14px;
     font-weight:600;
     color:#e5e5e5;
   ">
@@ -134,15 +134,13 @@ await transporter.sendMail({
   </p>
 
   <p style="
-    margin:4px 0 0;
+    margin:4px 0 0 0;
     font-size:13px;
     color:#a3a3a3;
   ">
     Our team is reviewing it and will contact you shortly
   </p>
 </div>
-
-
         <!-- RIGHT SPACER -->
         <div style="width:90px;"></div>
       </div>
@@ -158,7 +156,7 @@ await transporter.sendMail({
         ">
 
           <!-- TEXT -->
-          <div style="max-width:85%; z-index:2;">
+          <div style="max-width:75%; z-index:2;">
             <p style="margin:0;">
               Hi <strong>${name}</strong>,
             </p>
