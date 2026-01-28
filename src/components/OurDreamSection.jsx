@@ -53,8 +53,8 @@ export default function OurDreamSection() {
           </h2>
 
           <p className="max-w-xl text-gray-400 leading-relaxed">
-            Pizza ipsum dolor meat lovers buffalo. Extra broccoli parmesan
-            ricotta garlic dolor sauce marinara Chicago marinara.
+            We dream of creating digital experiences that feel simple, useful, and human.
+Technology that works quietly in the background, while your business moves forward.
           </p>
         </div>
 

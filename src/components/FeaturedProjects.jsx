@@ -4,28 +4,28 @@ const featuredProjects = [
     title: "Resign Art Studio",
     subtitle: "UI / UX Design",
     image: "/projects/project-1.png",
-    link: "#",
+    link: "https://drive.google.com/drive/folders/1Nz2PUjsXgW2YLiCJepurz0b3glu35Pd0?usp=drive_link",
   },
   {
     id: 2,
     title: "Jwelllery E-Commerce",
     subtitle: "Web Application",
     image: "/projects/project-2.png",
-    link: "#",
+    link: "https://drive.google.com/drive/folders/1cu6Ry7Fu3J-8PHdMzGpX5y2jYtzkcfFc?usp=drive_link",
   },
   {
     id: 3,
     title: " Cafe App",
     subtitle: "App + Automation",
     image: "/projects/project-3.png",
-    link: "#",
+    link: "https://drive.google.com/drive/folders/1hBDbU-DPfmbTxaJZoAI_eoBctSkhY2P7?usp=drive_link",
   },
   {
     id: 4,
     title: "NGO Website",
     subtitle: "Web Development",
     image: "/projects/project-4.png",
-    link: "#",
+    link: "https://drive.google.com/drive/folders/1IQAo8y4QO7XPfLiPV_bqtu_xmxFEp3Ld?usp=drive_link",
   },
 ];
 

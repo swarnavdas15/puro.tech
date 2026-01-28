@@ -6,6 +6,7 @@ import NotFound from "./components/NotFound";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import Disclaimer from "./pages/Disclaimer";
 import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
 // Pages
 import Home from "./pages/Home";
 import Services from "./pages/Services";
@@ -16,6 +17,21 @@ import Contact from "./pages/Contact";
 import "./App.css";
 
 function App() {
+
+  const location = useLocation();
+
+   useEffect(() => {
+    if (location.hash) {
+      const element = document.querySelector(location.hash);
+      if (element) {
+        element.scrollIntoView({
+          behavior: "smooth",
+          block: "start"
+        });
+      }
+    }
+  }, [location]);
+
 
   useEffect(() => {
   // Disable right click
