@@ -103,6 +103,7 @@ await transporter.sendMail({
         border-bottom:1px solid #2a0a0c;
         display:flex;
         align-items:center;
+        gap:12px;
         justify-content:space-between;
       ">
 
@@ -141,8 +142,8 @@ await transporter.sendMail({
     Our team is reviewing it and will contact you shortly
   </p>
 </div>
-        <!-- RIGHT SPACER -->
-        <div style="width:90px;"></div>
+
+      
       </div>
 
       <!-- BODY -->
