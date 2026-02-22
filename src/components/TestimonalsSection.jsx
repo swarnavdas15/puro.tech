@@ -4,7 +4,7 @@ const testimonials = [
   {
     id: 1,
     name: "Rahul Mehta",
-    role: "Founder, FinTech Startup",
+    role: "Educator",
     quote:
       "PURO Tech delivered beyond expectations. The design clarity and development speed were exceptional.",
     rating: 5,
@@ -14,17 +14,17 @@ const testimonials = [
   {
     id: 2,
     name: "Ananya Sharma",
-    role: "Product Manager, SaaS",
+    role: "Cafe Owner & Entrepreneur",
     quote:
       "Their team understands both business and tech. The final product was clean, scalable, and fast.",
     rating: 5,
-    avatar: "/testimonials/ananya.jpg",
+    avatar: "/testimonials/ananya.jpeg",
     link: "#",
   },
   {
     id: 3,
     name: "Arjun Patel",
-    role: "CEO, E-Commerce Brand",
+    role: "Startup Founder",
     quote:
       "From idea to execution, everything was smooth. PURO feels like an extended in-house team.",
     rating: 4,
