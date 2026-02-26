@@ -112,6 +112,7 @@ export default function Footer() {
             <li><Link className='hover:text-white' to="/services">UI / UX Design</Link></li>
             <li><Link className='hover:text-white' to="/services">Digital Marketing</Link></li>
             <li><Link className='hover:text-white' to="/services">Brand Strategy</Link></li>
+            <li><Link className='hover:text-white' to="/services">AI Automation</Link></li>
           </ul>
         </div>
 

@@ -5,6 +5,7 @@ import {
   FaNodeJs,
   FaDocker,
   FaAws,
+  FaJava,
 } from "react-icons/fa";
 import {
   SiNextdotjs,
@@ -22,6 +23,7 @@ import {
    SiTensorflow,
    SiOwasp,
    SiMetasploit,
+  
 } from "react-icons/si";
 
 const techStack = [
@@ -60,7 +62,7 @@ const techStack = [
   },
   {
     name: "Java",
-    icon: <FaAws size={30} />,
+    icon: <FaJava size={30} />,
     description:
       "Enterprise-grade backend development for large-scale applications.",
   },
