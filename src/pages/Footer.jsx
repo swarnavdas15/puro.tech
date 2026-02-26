@@ -1,6 +1,6 @@
 import react from 'react'
 import { Link } from 'react-router-dom';
-import { FaInstagram, FaLinkedinIn, FaGithub,  FaGoogle } from "react-icons/fa";
+import { FaInstagram, FaLinkedinIn, FaGithub,  FaGoogle, FaYoutube } from "react-icons/fa";
 
 export default function Footer() {
   return (
@@ -49,7 +49,7 @@ export default function Footer() {
             </a>
 
            <span className="text-gray-400 tracking-wide">
-  • Tollygunj, Thakurpukur, WB-700093, India
+  • Tollygunge,Kolakata, WB-700093, India
 </span>
           </div>
 
@@ -87,11 +87,11 @@ export default function Footer() {
                hover:bg-red-600 hover:scale-110 hover:shadow-gray-800/40 
                transition-all duration-300"
             >
-              <FaGithub className="text-white text-lg" />
+              <FaYoutube className="text-white text-lg" />
             </a>
 
             <a
-              href="mailto:puro.tech.ofcl@gmail.com"
+              href="https://youtube.com/@puro_tech?si=cem1TD5Y-GbeBrRe"
               target="_blank"
               rel="noopener noreferrer"
               className="w-9 h-9 flex items-center justify-center rounded-full bg-white/10 

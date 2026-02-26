@@ -1,7 +1,12 @@
+import { useState } from "react";
 import CreativeDesign from "../components/CreativeDesign.jsx";
 import FeaturedProjects from "../components/FeaturedProjects.jsx";
 import TestimonialsSection from "../components/TestimonalsSection.jsx";
+import WhoWeServe from "../components/WhoWeServe.jsx";
+import ServiceModal from "../components/ServiceModal.jsx";
+import TechStackBubbles from "../components/TechStackBubbles.jsx";
 export default function Services() {
+  const [selectedService, setSelectedService] = useState(null);
 
 
   return (
@@ -40,7 +45,7 @@ export default function Services() {
 
         {/* MAIN HEADING */}
         <h2 className="
-          relative z-10 top-20
+          relative z-10 top-10
           text-3xl sm:text-4xl md:text-5xl
           text-white font-medium leading-tight
         ">
@@ -53,7 +58,7 @@ export default function Services() {
           left-[8%]
           bottom-[14%]
           sm:left-[14%]
-          sm:bottom-[22%]
+          sm:bottom-[12%]
           grid grid-cols-3 gap-2
         ">
           {Array.from({ length: 9 }).map((_, i) => (
@@ -84,6 +89,11 @@ export default function Services() {
       <div className="absolute -right-40 top-1/3 w-[420px] h-[420px] bg-red-600/20 blur-[160px] rounded-full" />
     </main>
         <FeaturedProjects id='Featured' />
+        <WhoWeServe onSelectService={setSelectedService} />
+
+        <ServiceModal selectedService={selectedService} onClose={() => setSelectedService(null)}/>
+       
+        <TechStackBubbles />
         <TestimonialsSection />
     </>
   );

@@ -41,7 +41,7 @@ const handleHomeClick = (e) => {
           {/* Desktop Menu */}
           <ul className="hidden md:flex items-center gap-8">
             <NavLink to="/" end className={linkClass} onClick={handleHomeClick}>Home</NavLink>
-            <NavLink to="/services" className={linkClass} on>Services</NavLink>
+            <NavLink to="/services" className={linkClass}>Services</NavLink>
             <NavLink to="/portfolio" className={linkClass}>Portfolio</NavLink>
             <NavLink to="/about" className={linkClass}>About</NavLink>
             <NavLink to="/contact" className={linkClass}>Contact</NavLink>
@@ -99,7 +99,7 @@ const handleHomeClick = (e) => {
 
           {/* Mobile Menu */}
           <ul className="flex flex-col gap-6 text-lg">
-            <NavLink to="/" end className={linkClass} onClick={() =>{handleHomeClick(e); setOpen(false);}}>Home</NavLink>
+            <NavLink to="/" end className={linkClass} onClick={(e) => { handleHomeClick(e); setOpen(false); }}>Home</NavLink>
             <NavLink to="/services" className={linkClass} onClick={() => setOpen(false)}>Services</NavLink>
             <NavLink to="/portfolio" className={linkClass} onClick={() => setOpen(false)}>Portfolio</NavLink>
             <NavLink to="/about" className={linkClass} onClick={() => setOpen(false)}>About</NavLink>
