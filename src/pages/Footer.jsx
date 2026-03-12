@@ -80,7 +80,7 @@ export default function Footer() {
             </a>
 
             <a
-              href="https://github.com/swarnavdas15"
+              href="https://youtube.com/@puro_tech?si=JYx2z-HO-KRhST_Q"
               target="_blank"
               rel="noopener noreferrer"
               className="w-9 h-9 flex items-center justify-center rounded-full bg-white/10 
