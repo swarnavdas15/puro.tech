@@ -21,7 +21,7 @@ export const blogPosts = [
           "That is why AI automation has become more relevant for smaller businesses. It gives teams a way to remove repeated manual steps from everyday work. Instead of spending hours on the same administrative actions, businesses can create structured workflows that respond faster and operate more predictably.",
           "The real value is not just speed. It is clarity. When a business knows which tasks can be automated and which decisions still need human judgement, operations become easier to manage and growth becomes less chaotic.",
         ],
-        image: "",
+        image: "https://raw.githubusercontent.com/swarnavdas15/personal-doc/refs/heads/main/document/ai-workflow.png",
         imagePlaceholder: "Workflow automation image placeholder",
       },
       {
@@ -81,7 +81,7 @@ export const blogPosts = [
     category: "Web Development",
     readTime: "7 min read",
     featuredLabel: "Business website growth visual",
-    featuredImage: "",
+    featuredImage: "https://raw.githubusercontent.com/swarnavdas15/personal-doc/refs/heads/main/document/buisness-web.png",
     intro:
       "A business website is often the first serious trust signal a company gives to potential clients. It affects credibility, discoverability, and enquiry quality, while also acting as a long-term digital asset that supports sales, positioning, and growth.",
     sections: [
@@ -100,7 +100,7 @@ export const blogPosts = [
           "When web development decisions support SEO, usability, and speed together, the website becomes more than a brochure. It becomes a working growth channel that can attract relevant visitors through search, social sharing, and direct recommendations.",
           "Performance matters here. Slow websites increase bounce rates, reduce trust, and weaken both user experience and search visibility. A high-performance website creates a stronger first impression and supports better engagement at the same time.",
         ],
-        image: "",
+        image: "https://raw.githubusercontent.com/swarnavdas15/personal-doc/refs/heads/main/document/web-hosting.png",
         imagePlaceholder: "Website performance image placeholder",
       },
       {
@@ -150,7 +150,7 @@ export const blogPosts = [
     category: "Software Solutions",
     readTime: "9 min read",
     featuredLabel: "Custom software systems visual",
-    featuredImage: "",
+    featuredImage: "https://raw.githubusercontent.com/swarnavdas15/personal-doc/refs/heads/main/document/software-dev.png",
     intro:
       "As businesses grow, spreadsheets, disconnected tools, and manual coordination often turn into operational bottlenecks. Custom software solutions help teams build better structure around how work actually happens, making growth easier to manage and execution easier to sustain.",
     sections: [
@@ -191,7 +191,7 @@ export const blogPosts = [
           "That makes it easier to scope a maintainable solution with the right integrations, the right permissions, and the right long-term cost profile. The technical stack should support reliability and future adaptability rather than novelty.",
           "Practical implementation also means making the software easy to use. If the internal system is too difficult to understand, adoption falls and the intended efficiency gains disappear.",
         ],
-        image: "",
+        image: "https://raw.githubusercontent.com/swarnavdas15/personal-doc/refs/heads/main/document/software-class.png",
         imagePlaceholder: "Custom platform planning image placeholder",
       },
       {

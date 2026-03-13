@@ -3,15 +3,21 @@ import { Link } from "react-router-dom";
 function BlogImageBlock({ src, alt, placeholder, large = false }) {
   if (src) {
     return (
-      <img
-        src={src}
-        alt={alt}
-        loading="lazy"
-        decoding="async"
-        className={`w-full object-cover rounded-[1.5rem] border border-white/10 ${
-          large ? "max-h-[460px]" : "max-h-[360px]"
-        }`}
-      />
+      <div
+        className={`overflow-hidden rounded-[1.5rem] border border-white/10 bg-[#090304] ${
+          large ? "min-h-[260px] md:min-h-[420px]" : "min-h-[220px] md:min-h-[320px]"
+        } flex items-center justify-center p-4`}
+      >
+        <img
+          src={src}
+          alt={alt}
+          loading="lazy"
+          decoding="async"
+          className={`w-full h-full object-fill rounded-[1rem] ${
+            large ? "max-h-[420px]" : "max-h-[320px]"
+          }`}
+        />
+      </div>
     );
   }
 
@@ -74,7 +80,7 @@ export default function BlogTemplate({ post, relatedPosts = [] }) {
             </div>
           </div>
 
-          <div className="mt-12 grid gap-10 lg:grid-cols-[minmax(0,780px)_280px] lg:justify-center items-start">
+          <div className="mt-12 grid gap-10 lg:grid-cols-[minmax(0,860px)_280px] lg:justify-center items-start">
             <article className="w-full rounded-[2rem] border border-white/10 bg-[#0f0506]/85 backdrop-blur-xl p-7 md:p-9 shadow-[0_18px_54px_rgba(0,0,0,0.18)]">
               <div className="rounded-[1.5rem] border border-red-500/20 bg-red-500/8 px-5 py-5">
                 <p className="mb-0 text-sm uppercase tracking-[0.18em] text-red-200">

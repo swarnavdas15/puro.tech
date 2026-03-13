@@ -4,13 +4,15 @@ import { getAllBlogPosts } from "../data/blogs";
 function BlogCardImage({ src, alt }) {
   if (src) {
     return (
-      <img
-        src={src}
-        alt={alt}
-        loading="lazy"
-        decoding="async"
-        className="w-full h-56 object-cover rounded-[1.35rem] border border-white/10"
-      />
+      <div className="h-56 overflow-hidden rounded-[1.35rem] border border-white/10 bg-[#090304] flex items-center justify-center p-3">
+        <img
+          src={src}
+          alt={alt}
+          loading="lazy"
+          decoding="async"
+          className="w-full h-full object-contain rounded-[1rem]"
+        />
+      </div>
     );
   }
 
