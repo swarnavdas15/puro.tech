@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const testimonials = [
   {
@@ -6,19 +6,19 @@ const testimonials = [
     name: "Rahul Mehta",
     role: "Educator",
     quote:
-      "PURO Tech delivered beyond expectations. The design clarity and development speed were exceptional.",
+      "PURO TECH delivered beyond expectations. The design clarity and development speed were exceptional.",
     rating: 5,
-    avatar: "/testimonials/rahul.jpg",
+    avatar: "/testimonials/rahul.webp",
     link: "#",
   },
   {
     id: 2,
     name: "Ananya Sharma",
-    role: "Cafe Owner & Entrepreneur",
+    role: "Cafe Owner and Entrepreneur",
     quote:
       "Their team understands both business and tech. The final product was clean, scalable, and fast.",
     rating: 5,
-    avatar: "/testimonials/ananya.jpeg",
+    avatar: "/testimonials/ananya.webp",
     link: "#",
   },
   {
@@ -26,9 +26,9 @@ const testimonials = [
     name: "Arjun Patel",
     role: "Startup Founder",
     quote:
-      "From idea to execution, everything was smooth. PURO feels like an extended in-house team.",
+      "From idea to execution, everything was smooth. PURO TECH felt like an extended in-house team.",
     rating: 4,
-    avatar: "/testimonials/arjun.jpg",
+    avatar: "/testimonials/arjun.webp",
     link: "#",
   },
 ];
@@ -56,27 +56,21 @@ function Stars({ count }) {
 export default function TestimonialsSection() {
   const trackRef = useRef(null);
   const [translateX, setTranslateX] = useState(0);
-  const speed = 0.4; // px per frame (adjust for faster/slower)
-
-  // Duplicate testimonials for infinite loop
+  const speed = 0.4;
   const loopItems = [...testimonials, ...testimonials];
 
   useEffect(() => {
     let rafId;
 
     const animate = () => {
-      if (!trackRef.current) return;
+      if (!trackRef.current) {
+        return;
+      }
 
       const trackWidth = trackRef.current.scrollWidth / 2;
-
       setTranslateX((prev) => {
         const next = prev + speed;
-
-        // When first set fully moves out, reset seamlessly
-        if (next >= trackWidth) {
-          return 0;
-        }
-        return next;
+        return next >= trackWidth ? 0 : next;
       });
 
       rafId = requestAnimationFrame(animate);
@@ -89,19 +83,16 @@ export default function TestimonialsSection() {
   return (
     <section className="relative w-full py-24 bg-gradient-to-br from-black via-[#120305] to-black overflow-hidden">
       <div className="max-w-[90%] mx-auto px-6">
-
-        {/* Header */}
-        <div className="mb-16 max-w-2xl">
+        <div className="mb-16 max-w-3xl">
           <h2 className="text-3xl md:text-4xl font-bold text-white">
-            What Clients <span className="text-red-600">Say</span>
+            Client results in <span className="text-red-600">web development and AI automation</span>
           </h2>
           <p className="mt-4 text-gray-400">
-            Trusted by founders and teams who value quality, performance, and
-            long-term partnerships.
+            Trusted by founders and teams who value performance, delivery
+            clarity, and digital solutions that support long-term growth.
           </p>
         </div>
 
-        {/* Infinite Slider */}
         <div className="overflow-hidden">
           <div
             ref={trackRef}
@@ -112,31 +103,20 @@ export default function TestimonialsSection() {
             }}
           >
             {loopItems.map((item, i) => (
-              <div
-                key={`${item.id}-${i}`}
-                className="w-full md:w-[48%] lg:w-[31%] shrink-0"
-              >
+              <div key={`${item.id}-${i}`} className="w-full md:w-[48%] lg:w-[31%] shrink-0">
                 <div
                   className="
-                    relative group h-full
-                    rounded-2xl
-                    bg-white/5 backdrop-blur-md
-                    border border-white/10
-                    p-8
-                    transition-all duration-500
-                    hover:-translate-y-2
-                    hover:border-red-500/40
+                    relative group h-full rounded-2xl bg-white/5 backdrop-blur-md
+                    border border-white/10 p-8 transition-all duration-500
+                    hover:-translate-y-2 hover:border-red-500/40
                   "
                 >
-                  {/* Stars */}
                   <Stars count={item.rating} />
 
-                  {/* Quote */}
                   <p className="mt-5 text-gray-300 leading-relaxed">
-                    “{item.quote}”
+                    "{item.quote}"
                   </p>
 
-                  {/* Footer */}
                   <div className="mt-8 flex items-center gap-4">
                     <a
                       href={item.link}
@@ -147,12 +127,13 @@ export default function TestimonialsSection() {
                       <img
                         src={item.avatar}
                         alt={item.name}
+                        width="96"
+                        height="96"
+                        loading="lazy"
+                        decoding="async"
                         className="
-                          w-12 h-12 rounded-full object-cover
-                          border border-white/20
-                          transition
-                          group-hover/avatar:ring-2
-                          ring-red-500
+                          w-12 h-12 rounded-full object-cover border border-white/20
+                          transition group-hover/avatar:ring-2 ring-red-500
                         "
                       />
                     </a>
@@ -163,13 +144,10 @@ export default function TestimonialsSection() {
                     </div>
                   </div>
 
-                  {/* Glow */}
                   <div
                     className="
-                      pointer-events-none absolute inset-0
-                      opacity-0 group-hover:opacity-100
-                      transition duration-500
-                      rounded-2xl
+                      pointer-events-none absolute inset-0 opacity-0 group-hover:opacity-100
+                      transition duration-500 rounded-2xl
                       bg-gradient-to-t from-red-600/20 via-red-600/5 to-transparent
                     "
                   />
@@ -180,7 +158,6 @@ export default function TestimonialsSection() {
         </div>
       </div>
 
-      {/* Decorative Glow */}
       <div className="absolute -right-40 bottom-1/3 w-[420px] h-[420px] bg-red-600/20 blur-[160px] rounded-full" />
     </section>
   );

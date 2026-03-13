@@ -2,18 +2,12 @@ import { useEffect, useState } from "react";
 
 export default function Mascot3D() {
   const [stage, setStage] = useState("roni");
-  // roni | puchu | final
-
   const [hovered, setHovered] = useState(null);
-  // null | roni | puchu
 
-  /* Timeline (sync with Hero typing) */
   useEffect(() => {
     const toPuchu = setTimeout(() => {
       setStage("puchu");
-      window.dispatchEvent(
-        new CustomEvent("mascot-change", { detail: "puchu" })
-      );
+      window.dispatchEvent(new CustomEvent("mascot-change", { detail: "puchu" }));
     }, 4500);
 
     const toFinal = setTimeout(() => {
@@ -30,75 +24,78 @@ export default function Mascot3D() {
   const base =
     "transition-all duration-500 ease-out drop-shadow-[0_40px_80px_rgba(0,0,0,0.75)]";
 
-  /* Focus logic:
-     - hover has highest priority
-     - otherwise timeline stage controls focus
-  */
   const isFront = (name) => {
-    if (hovered) return hovered === name;
-    if (stage === "final") return true;
+    if (hovered) {
+      return hovered === name;
+    }
+    if (stage === "final") {
+      return true;
+    }
     return stage === name;
   };
 
   const isBack = (name) => {
-    if (hovered) return hovered !== name;
-    if (stage === "final") return false;
+    if (hovered) {
+      return hovered !== name;
+    }
+    if (stage === "final") {
+      return false;
+    }
     return stage !== name;
   };
 
   const handleEnter = (name) => {
     setHovered(name);
-    window.dispatchEvent(
-      new CustomEvent("mascot-hover", { detail: name })
-    );
+    window.dispatchEvent(new CustomEvent("mascot-hover", { detail: name }));
   };
 
   const handleLeave = () => {
     setHovered(null);
-    window.dispatchEvent(
-      new CustomEvent("mascot-hover-end")
-    );
+    window.dispatchEvent(new CustomEvent("mascot-hover-end"));
   };
 
   return (
     <div className="relative w-full h-full flex items-center justify-center gap-10 select-none">
-
-      {/* RONI */}
       <img
-        src="/boy-mascot.png"
-        alt="Roni Mascot"
+        src="/boy-mascot.webp"
+        alt="Roni mascot"
+        width="480"
+        height="480"
+        fetchPriority="low"
+        decoding="async"
         draggable={false}
         onMouseEnter={() => handleEnter("roni")}
         onMouseLeave={handleLeave}
         className={`
-          ${base}
-          w-56 md:w-72
+          ${base} w-56 md:w-72
           ${
             isFront("roni")
               ? "scale-105 z-20 blur-0 translate-y-0"
               : isBack("roni")
-              ? "scale-95 z-10 blur-[2px] translate-y-4"
-              : ""
+                ? "scale-95 z-10 blur-[2px] translate-y-4"
+                : ""
           }
         `}
       />
 
-      {/* PUCHU */}
       <img
-        src="/girl-mascot.png"
-        alt="Puchu Mascot"
+        src="/girl-mascot.webp"
+        alt="Puchu mascot"
+        width="480"
+        height="480"
+        fetchPriority="low"
+        decoding="async"
         draggable={false}
         onMouseEnter={() => handleEnter("puchu")}
         onMouseLeave={handleLeave}
         className={`
-          ${base}
-          w-56 md:w-72
+          ${base} w-56 md:w-72
           ${
             isFront("puchu")
               ? "scale-105 z-20 blur-0 translate-y-0"
               : isBack("puchu")
-              ? "scale-95 z-10 blur-[2px] translate-y-4"
-              : ""
+                ? "scale-95 z-10 blur-[2px] translate-y-4"
+                : ""
           }
         `}
       />

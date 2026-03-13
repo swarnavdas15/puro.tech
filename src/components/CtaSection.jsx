@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 export default function CtaSection() {
@@ -6,12 +6,14 @@ export default function CtaSection() {
   const navigate = useNavigate();
 
   const handleSubmit = () => {
-    if (!email) return;
+    if (!email) {
+      return;
+    }
     navigate(`/contact?email=${encodeURIComponent(email)}`);
   };
 
-  const handleKeyDown = (e) => {
-    if (e.key === "Enter") {
+  const handleKeyDown = (event) => {
+    if (event.key === "Enter") {
       handleSubmit();
     }
   };
@@ -19,92 +21,63 @@ export default function CtaSection() {
   return (
     <section className="relative w-full py-28 bg-gradient-to-br from-black via-[#140406] to-black overflow-hidden">
       <div className="max-w-7xl mx-auto px-6">
-
-        {/* Glass Container */}
         <div
           className="
-            relative
-            grid grid-cols-1 lg:grid-cols-2
-            items-center
-            gap-16
-            rounded-3xl
-            border border-white/10
-            bg-white/5
-            backdrop-blur-xl
-            px-8 py-14 md:px-14
+            relative grid grid-cols-1 lg:grid-cols-2 items-center gap-16 rounded-3xl
+            border border-white/10 bg-white/5 backdrop-blur-xl px-8 py-14 md:px-14
           "
         >
-
-          {/* LEFT CONTENT */}
           <div className="space-y-10">
-
-            {/* Heading */}
             <h2 className="text-4xl md:text-5xl font-semibold leading-tight text-white">
-              Let’s Build <br />
-              Something{" "}
-              <span className="text-red-600">Amazing</span>
+              Build a faster website or smarter
+              <span className="text-red-600"> digital solution</span>
             </h2>
 
             <p className="text-gray-400 leading-relaxed max-w-lg">
-              Have an idea or a challenge you’re working on?
-Let’s explore how the right digital solution can bring clarity, security, and scalability to your business.
+              Have a business idea, a stalled website, or a manual workflow
+              that needs AI automation? Share your email and we will help you
+              find the right next step.
             </p>
 
-            {/* Input */}
             <div className="relative max-w-md">
               <input
                 type="email"
                 placeholder="Email"
                 value={email}
-                onChange={(e) => setEmail(e.target.value)}
+                onChange={(event) => setEmail(event.target.value)}
                 onKeyDown={handleKeyDown}
                 className="
-                  w-full
-                  bg-white/5
-                  border border-white/15
-                  rounded-full
-                  px-6 py-4
-                  pr-20
-                  text-white
-                  placeholder:text-white/40
-                  outline-none
-                  focus:border-red-500/60
-                  transition
+                  w-full bg-white/5 border border-white/15 rounded-full px-6 py-4 pr-20
+                  text-white placeholder:text-white/40 outline-none focus:border-red-500/60 transition
                 "
               />
 
               <button
                 onClick={handleSubmit}
                 className="
-                  absolute top-1/2 right-1.5
-                  -translate-y-1/2
-                  w-12 h-12
-                  rounded-full
-                  bg-gradient-to-br from-red-500 to-red-700
-                  flex items-center justify-center
-                  text-white
-                  shadow-[0_0_0_4px_rgba(239,68,68,0.15)]
-                  hover:shadow-[0_0_0_6px_rgba(239,68,68,0.25)]
-                  hover:scale-105
-                  active:scale-95
+                  absolute top-1/2 right-1.5 -translate-y-1/2 w-12 h-12 rounded-full
+                  bg-gradient-to-br from-red-500 to-red-700 flex items-center justify-center
+                  text-white shadow-[0_0_0_4px_rgba(239,68,68,0.15)]
+                  hover:shadow-[0_0_0_6px_rgba(239,68,68,0.25)] hover:scale-105 active:scale-95
                   transition-all duration-300
                 "
                 aria-label="Submit"
               >
-                →
+                &rarr;
               </button>
             </div>
           </div>
 
-          {/* RIGHT MASCOT */}
           <div className="relative flex justify-center lg:justify-end">
             <img
-              src="/girl-mascot.png"
-              alt="Mascot"
+              src="/girl-mascot.webp"
+              alt="PURO TECH mascot"
+              width="480"
+              height="480"
+              loading="lazy"
+              decoding="async"
               className="
-                w-56 sm:w-64 md:w-72
-                drop-shadow-[0_40px_80px_rgba(0,0,0,0.6)]
-                select-none
+                w-56 sm:w-64 md:w-72 drop-shadow-[0_40px_80px_rgba(0,0,0,0.6)] select-none
               "
               draggable={false}
             />
@@ -112,7 +85,6 @@ Let’s explore how the right digital solution can bring clarity, security, and 
         </div>
       </div>
 
-      {/* Ambient Glow */}
       <div className="absolute -right-32 -top-32 w-[420px] h-[420px] bg-red-600/20 blur-[160px] rounded-full" />
     </section>
   );

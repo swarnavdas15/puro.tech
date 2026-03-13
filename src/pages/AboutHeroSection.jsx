@@ -1,7 +1,7 @@
 import React from "react";
 import OurDreamSection from "../components/OurDreamSection";
-import AchievementsSection from "../components/AchievementSection";
 import TestimonialsSection from "../components/TestimonalsSection";
+import HomeSeoContent from "../components/HomeSeoContent";
 
 export default function AboutHeroSection() {
   return (
@@ -88,9 +88,10 @@ export default function AboutHeroSection() {
 
       {/* OUR DREAM SECTION */}
       <div>
+        <HomeSeoContent />
         <OurDreamSection />
-        <AchievementsSection />
         <TestimonialsSection />
+        
       </div>
     </>
   );

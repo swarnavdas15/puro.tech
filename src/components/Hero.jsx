@@ -1,139 +1,120 @@
-import { useEffect, useState, useRef } from "react";
-import Mascot3D from "./Mascot3D";
-import { useNavigate } from 'react-router-dom';
+import { lazy, Suspense, useEffect, useRef, useState } from "react";
+import { useNavigate } from "react-router-dom";
+
+const Mascot3D = lazy(() => import("./Mascot3D"));
 
 export default function Hero() {
-  // Dialogues
- const roniText =
-  "Hey, I’m Roni.\nI help turn ideas into smart digital solutions.";
+  const roniText =
+    "Hey, I'm Roni.\nI help turn ideas into smart digital solutions.";
+  const puchuText =
+    "Hi, I'm Puchu.\nLet's explore what we can build together.";
+  const finalText = "We Are PURO";
+  const hoverRoniText = "How can I help you today?";
+  const hoverPuchuText = "What would you like to build?";
 
-const puchuText =
-  "Hi, I’m Puchu.\nLet’s explore what we can build together.";
-
-const finalText = "We Are PURO";
-
-// Hover dialogues
-const hoverRoniText = "How can I help you today?";
-const hoverPuchuText = "What would you like to build?";
-
-  // Core states
   const [showBubble, setShowBubble] = useState(false);
   const [typedText, setTypedText] = useState("");
   const [index, setIndex] = useState(0);
   const [fullText, setFullText] = useState(roniText);
   const [speaker, setSpeaker] = useState("roni");
-  const [isFinal, setIsFinal] = useState(false);
   const [canAnimate, setCanAnimate] = useState(false);
-
-  // Typing reset key
   const [typingKey, setTypingKey] = useState(0);
-
-  // Preserve timeline state during hover
   const [prevText, setPrevText] = useState(roniText);
   const [prevSpeaker, setPrevSpeaker] = useState("roni");
 
-  // 🔒 Active hover guard
   const activeHoverRef = useRef(null);
-
   const navigate = useNavigate();
 
   useEffect(() => {
-  const t = setTimeout(() => {
-    setCanAnimate(true);
-  }, 700); 
+    const timer = setTimeout(() => {
+      setCanAnimate(true);
+    }, 700);
 
-  return () => clearTimeout(t);
-}, []);
+    return () => clearTimeout(timer);
+  }, []);
 
-  /* Initial bubble delay */
   useEffect(() => {
-  if (!canAnimate) return;
-  const delay = setTimeout(() => setShowBubble(true), 800);
-  return () => clearTimeout(delay);
-}, [canAnimate]);
+    if (!canAnimate) {
+      return undefined;
+    }
 
+    const delay = setTimeout(() => setShowBubble(true), 800);
+    return () => clearTimeout(delay);
+  }, [canAnimate]);
 
-  /* Unified typewriter effect */
- useEffect(() => {
-  if (!canAnimate || !showBubble) return;
+  useEffect(() => {
+    if (!canAnimate || !showBubble || index < 0 || index >= fullText.length) {
+      return undefined;
+    }
 
-  // 🔒 HARD BOUNDS
-  if (index < 0) return;
-  if (index >= fullText.length) return;
+    const currentText = fullText;
+    const timer = setTimeout(() => {
+      setTypedText((prev) => {
+        if (currentText !== fullText) {
+          return "";
+        }
+        return prev + currentText[index];
+      });
 
-  // 🔒 SNAPSHOT GUARD (prevents stale timeouts)
-  const currentText = fullText;
+      setIndex((prev) => {
+        if (currentText !== fullText) {
+          return 0;
+        }
+        return prev + 1;
+      });
+    }, 35);
 
-  const t = setTimeout(() => {
-    setTypedText((prev) => {
-      // If text changed mid-typing, abort safely
-      if (currentText !== fullText) return "";
-      return prev + currentText[index];
-    });
+    return () => clearTimeout(timer);
+  }, [index, fullText, showBubble, typingKey, canAnimate]);
 
-    setIndex((prev) => {
-      if (currentText !== fullText) return 0;
-      return prev + 1;
-    });
-  }, 35);
-
-  return () => clearTimeout(t);
-}, [index, fullText, showBubble, typingKey, canAnimate]);
-
-
-  /* Safe typing restart helper */
   const restartTyping = (text) => {
     setTypedText("");
     setIndex(0);
     setFullText(text);
-    setTypingKey((k) => k + 1);
+    setTypingKey((key) => key + 1);
   };
 
-  /* Mascot timeline: Roni → Puchu */
   useEffect(() => {
-    const handleMascotChange = (e) => {
+    const handleMascotChange = (event) => {
       activeHoverRef.current = null;
-      setSpeaker(e.detail);
-      restartTyping(e.detail === "roni" ? roniText : puchuText);
+      setSpeaker(event.detail);
+      restartTyping(event.detail === "roni" ? roniText : puchuText);
     };
 
     window.addEventListener("mascot-change", handleMascotChange);
-    return () =>
-      window.removeEventListener("mascot-change", handleMascotChange);
+    return () => window.removeEventListener("mascot-change", handleMascotChange);
   }, []);
 
-  /* Final reveal */
   useEffect(() => {
     const handleFinalReveal = () => {
       activeHoverRef.current = null;
       setSpeaker("final");
-      setIsFinal(true);
       restartTyping(finalText);
     };
 
     window.addEventListener("final-reveal", handleFinalReveal);
-    return () =>
-      window.removeEventListener("final-reveal", handleFinalReveal);
+    return () => window.removeEventListener("final-reveal", handleFinalReveal);
   }, []);
 
-  /* Hover override (idempotent + safe) */
   useEffect(() => {
-    const handleHover = (e) => {
-      const mascot = e.detail;
+    const handleHover = (event) => {
+      const mascot = event.detail;
 
-      // prevent duplicate hover loops
-      if (activeHoverRef.current === mascot) return;
+      if (activeHoverRef.current === mascot) {
+        return;
+      }
+
       activeHoverRef.current = mascot;
-
       setPrevText(fullText);
       setPrevSpeaker(speaker);
       setSpeaker(mascot);
-
       restartTyping(mascot === "roni" ? hoverRoniText : hoverPuchuText);
     };
 
     const handleHoverEnd = () => {
-      if (!activeHoverRef.current) return;
+      if (!activeHoverRef.current) {
+        return;
+      }
 
       activeHoverRef.current = null;
       setSpeaker(prevSpeaker);
@@ -150,9 +131,7 @@ const hoverPuchuText = "What would you like to build?";
   }, [fullText, speaker, prevText, prevSpeaker]);
 
   return (
-    <section className="relative font-sora min-h-[110vh] w-full bg-gradient-to-br from-black via-[#1a0508] to-black overflow-hidden">
-
-      {/* Background Brand Text */}
+    <section className="relative font-sora min-h-[115vh] w-full bg-gradient-to-br from-black via-[#1a0508] to-black overflow-hidden">
       <div className="absolute top-[-300px] inset-0 flex items-center justify-center md:justify-end md:pr-24 pointer-events-none select-none">
         <span className="text-[96px] sm:text-[120px] md:text-[260px] xl:text-[320px] font-bold tracking-tight text-white/5">
           PURO
@@ -160,50 +139,48 @@ const hoverPuchuText = "What would you like to build?";
       </div>
 
       <div className="relative max-w-7xl mx-auto px-6 pt-28 pb-20 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-
-        {/* LEFT CONTENT */}
         <div className="space-y-7">
           <h1 className="text-4xl md:text-5xl xl:text-6xl font-bold text-white leading-tight">
-            Turning <span className="text-red-600">Ideas</span> Into <br />
-            Digital Reality
+            Web Development, <span className="text-red-600">AI Automation</span>
+            <br /> &amp; Tech Solutions
           </h1>
 
-          <p className="text-gray-400 max-w-xl text-lg">
-            We design and build secure, scalable digital solutions that help businesses grow with clarity.
+          <p className="text-gray-400 max-w-xl text-lg leading-relaxed">
+            PURO TECH builds fast websites, software solutions, and digital
+            systems for startups and businesses that need clarity, performance,
+            and measurable growth.
           </p>
 
           <div className="flex flex-wrap gap-4">
-            <button onClick={()=>navigate("/contact")} className="bg-red-600 hover:bg-red-700 transition px-7 py-3 rounded-full text-white font-semibold">
+            <button
+              onClick={() => navigate("/contact")}
+              className="bg-red-600 hover:bg-red-700 transition px-7 py-3 rounded-full text-white font-semibold"
+            >
               Start a Project
             </button>
-            <button onClick={()=>navigate("/portfolio")} className="border border-white/20 hover:border-white/40 transition px-7 py-3 rounded-full text-white">
+            <button
+              onClick={() => navigate("/portfolio")}
+              className="border border-white/20 hover:border-white/40 transition px-7 py-3 rounded-full text-white"
+            >
               See Our Work
             </button>
           </div>
         </div>
 
-        {/* RIGHT MASCOT */}
         <div className="relative w-full h-[360px] sm:h-[420px] lg:h-[520px] flex items-center justify-center">
-
           {showBubble && (
             <div
               className={`
-                pointer-events-none   /* 🔥 CRITICAL FIX */
-                absolute z-50 max-w-xs
+                pointer-events-none absolute z-50 max-w-xs
                 ${
                   speaker === "final"
                     ? "left-1/2 -translate-x-1/2 bottom-[320px] sm:bottom-[350px] text-center"
                     : speaker === "roni"
-                    ? "right-[55%] bottom-[10px] sm:bottom-[10px] lg:bottom-[70px]"
-                    : "left-[55%] bottom-[10px] sm:bottom-[50px] lg:bottom-[60px]"
+                      ? "right-[55%] bottom-[10px] sm:bottom-[10px] lg:bottom-[70px]"
+                      : "left-[55%] bottom-[10px] sm:bottom-[50px] lg:bottom-[60px]"
                 }
-                bg-white/10 backdrop-blur-xl
-                border border-white/20
-                rounded-2xl
-                px-6 py-4
-                text-sm text-white
-                animate-fadeUp
-                shadow-[0_10px_30px_rgba(0,0,0,0.4)]
+                bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl px-6 py-4
+                text-sm text-white animate-fadeUp shadow-[0_10px_30px_rgba(0,0,0,0.4)]
               `}
             >
               <p className="whitespace-pre-line text-gray-200 leading-relaxed">
@@ -212,84 +189,64 @@ const hoverPuchuText = "What would you like to build?";
             </div>
           )}
 
-          <Mascot3D />
+          <Suspense
+            fallback={<div className="w-full h-full rounded-3xl bg-white/5 border border-white/10" />}
+          >
+            <Mascot3D />
+          </Suspense>
         </div>
       </div>
-   
-   {/* ================= HERO STATS ================= */}
-<div className="relative max-w-6xl mx-auto px-10 mt-[-6%]">
-  <div className="
-    relative
-    grid grid-cols-2 sm:grid-cols-4
-    gap-10
-    items-center
-    text-white
-  ">
 
-    {/* Left decorative dots */}
-    <div className="absolute -left-25 top-10 -translate-y-1/2 hidden sm:block">
-      <div className="grid grid-cols-3 gap-2">
-        {Array.from({ length: 6 }).map((_, i) => (
-          <span
-            key={i}
-            className="w-2 h-2 rounded-full bg-red-600"
-          />
-        ))}
+      <div className="relative max-w-6xl mx-auto px-10 mt-[-6%]">
+        <div className="relative grid grid-cols-2 sm:grid-cols-4 gap-10 items-center text-white">
+          <div className="absolute -left-25 top-10 -translate-y-1/2 hidden sm:block">
+            <div className="grid grid-cols-3 gap-2">
+              {Array.from({ length: 6 }).map((_, i) => (
+                <span key={i} className="w-2 h-2 rounded-full bg-red-600" />
+              ))}
+            </div>
+          </div>
+
+          <div className="text-center sm:text-left">
+            <h2 className="text-4xl text-gray-500 font-bold">30+</h2>
+            <p className="mt-2 text-sm text-gray-500">
+              Project <br /> Completed
+            </p>
+          </div>
+
+          <div className="text-center sm:text-left">
+            <h2 className="text-4xl text-red-500 font-bold">95%</h2>
+            <p className="mt-2 text-sm text-gray-400">
+              Client <br /> Satisfaction
+            </p>
+          </div>
+
+          <div className="text-center sm:text-left">
+            <h2 className="text-4xl text-red-500 font-bold">2+</h2>
+            <p className="mt-2 text-sm text-gray-400">
+              Years of <br /> Experience
+            </p>
+          </div>
+
+          <div className="text-center sm:text-left">
+            <h2 className="text-4xl text-gray-500 font-bold">24/7</h2>
+            <p className="mt-2 text-sm text-gray-500">
+              Support <br /> Available
+            </p>
+          </div>
+
+          <div className="absolute -right-1 top-1/2 -translate-y-1/2 hidden sm:block">
+            <div className="grid grid-cols-3 gap-2">
+              {Array.from({ length: 6 }).map((_, i) => (
+                <span key={i} className="w-2 h-2 rounded-full bg-red-600" />
+              ))}
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
 
-    {/* STAT 1 */}
-    <div className="text-center sm:text-left">
-      <h3 className="text-4xl text-gray-500 font-bold">30+</h3>
-      <p className="mt-2 text-sm text-gray-500">
-        Project <br /> Completed
-      </p>
-    </div>
-
-    {/* STAT 2 */}
-    <div className="text-center sm:text-left">
-      <h3 className="text-4xl text-red-500 font-bold">95%</h3>
-      <p className="mt-2 text-sm text-gray-400">
-        Client <br /> Satisfaction
-      </p>
-    </div>
-
-    {/* STAT 3 */}
-    <div className="text-center sm:text-left">
-      <h3 className="text-4xl text-red-500 font-bold">2+</h3>
-      <p className="mt-2 text-sm text-gray-400">
-        Years of <br /> Experience
-      </p>
-    </div>
-
-    {/* STAT 4 */}
-    <div className="text-center sm:text-left">
-      <h3 className="text-4xl text-gray-500 font-bold">24/7</h3>
-      <p className="mt-2 text-sm text-gray-500">
-        Support <br /> Available
-      </p>
-    </div>
-
-    {/* Right decorative dots */}
-    <div className="absolute -right-1 top-1/2 -translate-y-1/2 hidden sm:block">
-      <div className="grid grid-cols-3 gap-2">
-        {Array.from({ length: 6 }).map((_, i) => (
-          <span
-            key={i}
-            className="w-2 h-2 rounded-full bg-red-600"
-          />
-        ))}
-      </div>
-    </div>
-
-  </div>
-</div>
-
-
-      {/* Decorative Glow */}
       <div className="absolute -top-24 -right-24 w-96 h-96 bg-red-600/20 blur-[120px] rounded-full" />
 
-      {/* Animations */}
       <style>
         {`
           @keyframes fadeUp {
@@ -298,11 +255,6 @@ const hoverPuchuText = "What would you like to build?";
           }
           .animate-fadeUp {
             animation: fadeUp 0.5s ease-out forwards;
-          }
-
-          @keyframes blink {
-            0%, 50%, 100% { opacity: 1; }
-            25%, 75% { opacity: 0; }
           }
         `}
       </style>

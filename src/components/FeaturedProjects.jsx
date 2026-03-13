@@ -2,29 +2,29 @@ const featuredProjects = [
   {
     id: 1,
     title: "Resign Art Studio",
-    subtitle: "UI / UX Design",
-    image: "/projects/project-1.png",
+    subtitle: "Web Design and Brand Experience",
+    image: "/projects/project-1.webp",
     link: "https://drive.google.com/drive/folders/1Nz2PUjsXgW2YLiCJepurz0b3glu35Pd0?usp=drive_link",
   },
   {
     id: 2,
-    title: "Jwelllery E-Commerce",
-    subtitle: "Web Application",
-    image: "/projects/project-2.png",
+    title: "Jewellery E-Commerce",
+    subtitle: "Web Development",
+    image: "/projects/project-2.webp",
     link: "https://drive.google.com/drive/folders/1cu6Ry7Fu3J-8PHdMzGpX5y2jYtzkcfFc?usp=drive_link",
   },
   {
     id: 3,
-    title: " Cafe App",
-    subtitle: "App + Automation",
-    image: "/projects/project-3.png",
+    title: "Cafe App",
+    subtitle: "AI Automation and Product Flow",
+    image: "/projects/project-3.webp",
     link: "https://drive.google.com/drive/folders/1hBDbU-DPfmbTxaJZoAI_eoBctSkhY2P7?usp=drive_link",
   },
   {
     id: 4,
     title: "NGO Website",
-    subtitle: "Web Development",
-    image: "/projects/project-4.png",
+    subtitle: "Software Solutions for Outreach",
+    image: "/projects/project-4.webp",
     link: "https://drive.google.com/drive/folders/1IQAo8y4QO7XPfLiPV_bqtu_xmxFEp3Ld?usp=drive_link",
   },
 ];
@@ -33,23 +33,24 @@ export default function FeaturedProjects() {
   return (
     <section className="relative w-full py-28 bg-gradient-to-br from-black via-[#140406] to-black overflow-hidden">
       <div className="max-w-7xl mx-auto px-6">
-
-        {/* Header */}
-        <div className="max-w-2xl mb-16">
+        <div className="max-w-3xl mb-16">
           <h2 className="text-5xl md:text-5xl font-semibold text-white">
-            Featured <span className="text-red-600">Concepts</span>
+            Web Development and <span className="text-red-600">AI Automation</span> work
           </h2>
           <p className="mt-4 text-gray-400 leading-relaxed">
-           A curated selection of high-impact digital solutions, built with clarity, security, scalability, and performance at the core.
+            Explore selected projects that show how PURO TECH delivers web
+            development, software solutions, digital solutions, and automation
+            with performance and clarity at the core.
           </p>
         </div>
 
-        {/* Projects Grid */}
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-2">
           {featuredProjects.map((project) => (
             <a
               key={project.id}
               href={project.link}
+              target="_blank"
+              rel="noopener noreferrer"
               className="
                 group relative rounded-2xl overflow-hidden
                 bg-white/5 backdrop-blur-md
@@ -59,11 +60,15 @@ export default function FeaturedProjects() {
                 hover:border-red-500/40
               "
             >
-              {/* Image */}
               <div className="overflow-hidden">
                 <img
                   src={project.image}
                   alt={project.title}
+                  width="960"
+                  height="640"
+                  loading="lazy"
+                  decoding="async"
+                  sizes="(min-width: 1024px) 50vw, 100vw"
                   className="
                     w-full h-64 object-cover
                     transition-transform duration-700 ease-out
@@ -72,7 +77,6 @@ export default function FeaturedProjects() {
                 />
               </div>
 
-              {/* Red Go-To Button */}
               <div
                 className="
                   absolute top-5 right-5 z-20
@@ -101,7 +105,6 @@ export default function FeaturedProjects() {
                 </svg>
               </div>
 
-              {/* Hover Glow */}
               <div
                 className="
                   pointer-events-none absolute inset-0
@@ -111,11 +114,8 @@ export default function FeaturedProjects() {
                 "
               />
 
-              {/* Content */}
               <div className="absolute bottom-6 left-6 right-6 z-10">
-                <p className="text-sm text-gray-300">
-                  {project.subtitle}
-                </p>
+                <p className="text-sm text-gray-300">{project.subtitle}</p>
                 <h3 className="mt-1 text-xl font-semibold text-white">
                   {project.title}
                 </h3>
@@ -125,7 +125,6 @@ export default function FeaturedProjects() {
         </div>
       </div>
 
-      {/* Ambient Glow */}
       <div className="absolute -left-40 top-1/3 w-[420px] h-[420px] bg-red-600/20 blur-[160px] rounded-full" />
     </section>
   );

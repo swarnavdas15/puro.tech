@@ -1,5 +1,4 @@
-import React from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import * as FramerMotion from "framer-motion";
 import { useNavigate } from "react-router-dom";
 
 const ServiceModal = ({ selectedService, onClose }) => {
@@ -11,15 +10,15 @@ const ServiceModal = ({ selectedService, onClose }) => {
   };
 
   return (
-    <AnimatePresence>
-      {selectedService && (
-        <motion.div
+    <FramerMotion.AnimatePresence>
+      {selectedService ? (
+        <FramerMotion.motion.div
           className="fixed inset-0 bg-black/80 backdrop-blur-md flex items-center justify-center z-5000 p-6"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
         >
-          <motion.div
+          <FramerMotion.motion.div
             initial={{ scale: 0.85, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0.85, opacity: 0 }}
@@ -29,24 +28,23 @@ const ServiceModal = ({ selectedService, onClose }) => {
             <button
               onClick={onClose}
               className="absolute top-4 right-6 text-gray-400 hover:text-white text-xl"
+              aria-label="Close modal"
             >
-              ✕
+              &#10005;
             </button>
 
             <h3 className="text-3xl font-bold text-[#E10600] mb-3">
               {selectedService.title}
             </h3>
 
-            <p className="text-gray-300 mb-6">
-              {selectedService.description}
-            </p>
+            <p className="text-gray-300 mb-6">{selectedService.description}</p>
 
             <div className="mb-6">
               <h4 className="font-semibold text-red-400 mb-2">What We Offer:</h4>
               <ul className="space-y-2 text-sm text-gray-400">
                 {selectedService.features.map((feature, index) => (
                   <li key={index} className="flex gap-2">
-                    <span className="text-[#E10600]">✔</span>
+                    <span className="text-[#E10600]">&#10004;</span>
                     {feature}
                   </li>
                 ))}
@@ -59,7 +57,8 @@ const ServiceModal = ({ selectedService, onClose }) => {
                 {selectedService.price}
               </p>
               <p className="text-xs text-gray-400 mt-1">
-                Premium quality at highly competitive pricing compared to traditional agencies.
+                Premium quality at highly competitive pricing compared to
+                traditional agencies.
               </p>
             </div>
 
@@ -71,10 +70,10 @@ const ServiceModal = ({ selectedService, onClose }) => {
                 Start Your Project
               </button>
             </div>
-          </motion.div>
-        </motion.div>
-      )}
-    </AnimatePresence>
+          </FramerMotion.motion.div>
+        </FramerMotion.motion.div>
+      ) : null}
+    </FramerMotion.AnimatePresence>
   );
 };
 

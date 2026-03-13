@@ -1,82 +1,69 @@
+import LegalPageLayout from "../components/LegalPageLayout";
+
+const sections = [
+  {
+    heading: "Introduction and Scope",
+    paragraphs: [
+      "At PURO TECH, we respect your privacy and are committed to protecting any personal information you choose to share with us. This Privacy Policy explains how we collect, use, and safeguard information when you interact with our website, contact forms, or digital services.",
+      "This policy applies to information shared through the PURO TECH website and related communications concerning web development, AI automation, software solutions, and tech consultancy services.",
+    ],
+  },
+  {
+    heading: "Information We Collect",
+    paragraphs: [
+      "We may collect basic personal details such as your name, email address, phone number, company information, or project-related details when you voluntarily submit them through contact forms, emails, or direct communication.",
+      "This information is collected solely for the purpose of responding to enquiries, evaluating project requirements, providing services, and maintaining professional communication.",
+    ],
+  },
+  {
+    heading: "How We Use Information",
+    paragraphs: [
+      "PURO TECH uses submitted information to respond to queries, prepare proposals, deliver agreed services, improve website performance, and maintain relevant business communication.",
+      "We do not sell, rent, trade, or share your personal information with third parties for marketing or unrelated commercial purposes. Any data shared with us remains confidential and is used only within the scope of the requested discussion or service.",
+    ],
+  },
+  {
+    heading: "Data Protection and Security",
+    paragraphs: [
+      "As a freelancer-led technology business, we do not intentionally collect sensitive personal data such as financial details, government-issued identification, or payment credentials unless explicitly required for a contracted service and agreed upon in writing.",
+      "While we take reasonable technical and organisational measures to protect your information, no method of transmission over the internet or electronic storage is completely secure. PURO TECH therefore cannot guarantee absolute security of data transmitted through the website.",
+    ],
+  },
+  {
+    heading: "Analytics, External Links, and Updates",
+    paragraphs: [
+      "We may use standard analytics tools, including website analytics integrations, to understand general usage patterns such as page visits, engagement, and traffic sources. This information is aggregated or anonymised and is used to improve content relevance, performance, and usability.",
+      "Our website may also contain links to external or third-party websites. We do not control the content or privacy practices of those websites and encourage visitors to review their policies separately.",
+      "By using this website, you acknowledge the privacy practices described in this Privacy Policy. PURO TECH reserves the right to update or modify this policy at any time to reflect changes in services, operations, or legal requirements.",
+    ],
+  },
+];
+
+const asideItems = [
+  {
+    title: "Business",
+    text: "PURO TECH is a Kolkata-based digital services brand offering web development, AI automation, software solutions, and consultancy.",
+  },
+  {
+    title: "Contact Data",
+    text: "Information submitted through forms or email is used only for project communication, support, and service delivery.",
+  },
+  {
+    title: "Analytics",
+    text: "Website analytics may be used to improve user experience, technical performance, and page relevance.",
+  },
+];
+
 export default function PrivacyPolicy() {
   return (
-    <section className="min-h-screen bg-gradient-to-br from-black via-[#140406] to-black py-28">
-      <div className="max-w-4xl mx-auto px-6 text-white">
-
-        <h1 className="text-4xl md:text-5xl font-semibold mb-10">
-          Privacy <span className="text-red-600">Policy</span>
-        </h1>
-
-       <div className="max-w-3xl yext-justify mx-auto space-y-6 text-gray-300 text-base md:text-lg leading-relaxed md:leading-loose text-justify">
-  <p>
-    At <span className="text-red-600 font-medium">PURO TECH</span>, we respect
-    your privacy and are committed to protecting any personal information you
-    choose to share with us. This Privacy Policy explains how we collect, use,
-    and safeguard information when you interact with our website or services.
-  </p>
-
-  <p>
-    We may collect basic personal details such as your name, email address,
-    phone number, or project-related information when you voluntarily submit
-    them through contact forms, emails, or direct communication. This
-    information is collected solely for the purpose of responding to inquiries,
-    providing services, and maintaining professional communication.
-  </p>
-
-  <p>
-    <span className="text-red-600 font-medium">
-      PURO TECH does not sell, rent, trade, or share
-    </span>{" "}
-    your personal information with third parties for marketing or commercial
-    purposes. Any data shared with us remains confidential and is used only
-    within the scope of the requested service or discussion.
-  </p>
-
-  <p>
-    As a freelancer-led technology group operating under a sole proprietorship,
-    we do not collect sensitive personal data such as financial details,
-    government-issued identification, or payment credentials unless explicitly
-    required for a contracted service and agreed upon in writing.
-  </p>
-
-  <p>
-    We may use standard analytics tools to understand general website usage
-    patterns, such as page visits or traffic sources. This data is aggregated
-    and anonymized and is used only to improve website performance, usability,
-    and content relevance. It does not personally identify individual users.
-  </p>
-
-  <p>
-    While we take reasonable technical and organizational measures to protect
-    your information, no method of transmission over the internet or electronic
-    storage is completely secure. Therefore,{" "}
-    <span className="text-red-600 font-medium">
-      PURO TECH cannot guarantee absolute security
-    </span>{" "}
-    of data transmitted through the website.
-  </p>
-
-  <p>
-    Our website may contain links to external or third-party websites. Please
-    note that we have no control over the content or privacy practices of such
-    sites and are not responsible for their policies. We encourage users to
-    review the privacy policies of any external websites they visit.
-  </p>
-
-  <p>
-    By using this website, you acknowledge and consent to the privacy practices
-    described in this policy. Continued use of the website following any updates
-    or changes to this Privacy Policy constitutes acceptance of those changes.
-  </p>
-
-  <p>
-    <span className="text-red-600 font-medium">PURO TECH</span> reserves the right
-    to update or modify this Privacy Policy at any time without prior notice to
-    reflect changes in practices, services, or legal requirements.
-  </p>
-</div>
-
-      </div>
-    </section>
+    <LegalPageLayout
+      badge="Privacy Policy"
+      title="Privacy Policy for PURO TECH"
+      intro="Review how PURO TECH collects, uses, and protects information shared through our website, consultations, and digital services."
+      updatedOn="March 13, 2026"
+      sections={sections}
+      asideTitle="Privacy Highlights"
+      asideItems={asideItems}
+    />
   );
 }
