@@ -23,14 +23,24 @@ export default function Navbar() {
     <>
       <nav className="w-full fixed top-0 left-0 z-800 bg-transparent backdrop-blur-md">
         <div className="max-w-7xl mx-auto px-5 py-4 flex items-center justify-between">
-          <div className="flex items-center gap-2 select-none">
-            <span className="text-white font-bold tracking-wide text-3xl">
-              PURO
-            </span>
-            <span className="text-red-600 font-bold tracking-wide text-2xl">
-              TECH.
-            </span>
-          </div>
+         <div
+  onClick={() => (window.location.href = "/")}
+  className="relative flex items-center gap-2 select-none cursor-pointer group"
+>
+  <span className="text-white font-bold tracking-wide text-3xl">
+    PURO
+  </span>
+
+  <span className="text-red-600 font-bold tracking-wide text-2xl">
+    TECH.
+  </span>
+
+  <span
+    className="absolute inset-0 rounded-full border border-red-500 opacity-0
+               scale-75 transition-all duration-300
+               group-hover:opacity-60 group-hover:scale-110"
+  ></span>
+</div>
 
           <ul className="hidden md:flex items-center gap-8">
             <NavLink to="/" end className={linkClass} onClick={handleHomeClick}>

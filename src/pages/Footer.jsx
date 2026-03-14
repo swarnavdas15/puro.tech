@@ -10,14 +10,24 @@ export default function Footer() {
 
       <div className="max-w-7xl mx-auto px-6 py-20 grid grid-cols-1 lg:grid-cols-[2.2fr_1fr_1fr] gap-24">
         <div>
-          <div className="flex items-center gap-2 select-none">
-            <span className="text-white font-bold tracking-wide text-3xl">
-              PURO
-            </span>
-            <span className="text-red-600 font-bold tracking-wide text-2xl">
-              TECH.
-            </span>
-          </div>
+          <div
+  onClick={() => (window.location.href = "/")}
+  className="flex items-center gap-2 select-none cursor-pointer group"
+>
+  <span className="text-white font-bold tracking-wide text-3xl">
+    PURO
+  </span>
+
+  <span className="relative text-red-600 font-bold tracking-wide text-2xl overflow-hidden">
+    
+    <span className="block transition-transform duration-300 group-hover:translate-x-1">
+      TECH.
+    </span>
+
+    <span className="absolute left-0 bottom-0 h-[2px] w-0 bg-red-600 transition-all duration-300 group-hover:w-full"></span>
+
+  </span>
+</div>
 
           <p className="text-sm text-gray-400 leading-relaxed max-w-[420px]">
             PURO TECH provides web development, AI automation, software
@@ -26,7 +36,6 @@ export default function Footer() {
           </p>
 
           <div className="mt-6 space-y-2 text-sm text-gray-400">
-            <p>Business Name: PURO TECH</p>
             <p>Location: Kolkata, West Bengal, India</p>
             <p>
               Phone:{" "}
@@ -135,21 +144,7 @@ export default function Footer() {
                 Blog
               </Link>
             </li>
-            <li>
-              <Link className="hover:text-white" to="/privacy-policy">
-                Privacy Policy
-              </Link>
-            </li>
-            <li>
-              <Link className="hover:text-white" to="/disclaimer">
-                Disclaimer
-              </Link>
-            </li>
-            <li>
-              <Link className="hover:text-white" to="/terms-and-conditions">
-                Terms & Conditions
-              </Link>
-            </li>
+           
             <li>
               <Link className="hover:text-white" to="/portfolio">
                 Portfolio
@@ -169,13 +164,12 @@ export default function Footer() {
       </div>
 
       <div className="max-w-7xl mx-auto px-6 py-8 flex flex-col md:flex-row justify-between items-center text-xs text-gray-400">
-        <span>
-          <Link to="/blog">Blog</Link> ·{" "}
+        <span className="space-x-2">
           <Link to="/privacy-policy">Privacy Policy</Link> ·{" "}
           <Link to="/disclaimer">Disclaimer</Link> ·{" "}
           <Link to="/terms-and-conditions">Terms & Conditions</Link>
         </span>
-        <span>&copy; {new Date().getFullYear()} PURO TECH. All rights reserved.</span>
+        <span onClick={() => (window.location.href = '/')} className="hover:-bg-conic-30 cursor-pointer">&copy; {new Date().getFullYear()} PURO TECH. All rights reserved.</span>
       </div>
     </footer>
   );

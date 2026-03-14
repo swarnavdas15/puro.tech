@@ -6,7 +6,7 @@ const WhoWeServe = ({ onSelectService }) => {
     title: "Real Estate Services",
     description:
       "High-conversion digital ecosystem designed to generate, manage, and convert property leads efficiently.",
-    price: "₹18,000 – ₹55,000",
+    price: "₹18,000 – ₹55,000+",
     features: [
       "Custom Real Estate Website",
       "Property Listing Management System",
@@ -22,7 +22,7 @@ const WhoWeServe = ({ onSelectService }) => {
     title: "Health Care Services",
     description:
       "Digital infrastructure for clinics, hospitals, and diagnostic centers to automate appointments and improve visibility.",
-    price: "₹20,000 – ₹60,000",
+    price: "₹20,000 – ₹60,000+",
     features: [
       "Appointment Booking System",
       "Doctor Profile Pages",
@@ -37,7 +37,7 @@ const WhoWeServe = ({ onSelectService }) => {
     title: "Educational Institutions",
     description:
       "Structured admission and inquiry management systems for schools and coaching institutes.",
-    price: "₹22,000 – ₹65,000",
+    price: "₹22,000 – ₹65,000+",
     features: [
       "Admission Funnel System",
       "Student Inquiry Dashboard",
@@ -52,7 +52,7 @@ const WhoWeServe = ({ onSelectService }) => {
     title: "Fashion Startups",
     description:
       "Brand-focused e-commerce systems for fashion labels aiming to scale digitally.",
-    price: "₹25,000 – ₹70,000",
+    price: "₹25,000 – ₹70,000+",
     features: [
       "Custom or Shopify E-commerce Store",
       "Product Catalog Management",
@@ -67,7 +67,7 @@ const WhoWeServe = ({ onSelectService }) => {
     title: "Handcraft Startups",
     description:
       "Digital storefronts for handmade and artisan brands looking to expand nationally and globally.",
-    price: "₹5,000 – ₹50,000",
+    price: "₹5,000 – ₹50,000+",
     features: [
       "Lightweight E-commerce Website",
       "International Payment Setup",
@@ -81,7 +81,7 @@ const WhoWeServe = ({ onSelectService }) => {
     title: "D2C Businesses",
     description:
       "Conversion-driven sales funnel systems for direct-to-consumer brands.",
-    price: "₹30,000 – ₹85,000",
+    price: "₹30,000 – ₹85,000+",
     features: [
       "High-Converting Product Pages",
       "Sales Funnel Architecture",
@@ -95,7 +95,7 @@ const WhoWeServe = ({ onSelectService }) => {
     title: "Digital Marketing Agencies",
     description:
       "Portfolio, automation, and white-label dashboards for marketing agencies.",
-    price: "₹20,000 – ₹60,000",
+    price: "₹20,000 – ₹60,000+",
     features: [
       "Agency Portfolio Website",
       "White-label Client Dashboard",
@@ -109,7 +109,7 @@ const WhoWeServe = ({ onSelectService }) => {
     title: "E-Commerce Brands",
     description:
       "Optimized online stores designed to improve trust, speed, and checkout conversions.",
-    price: "₹28,000 – ₹75,000",
+    price: "₹28,000 – ₹75,000+",
     features: [
       "Conversion-Optimized Store Design",
       "Speed & Core Web Vitals Optimization",
@@ -123,7 +123,7 @@ const WhoWeServe = ({ onSelectService }) => {
     title: "Finance & CA Firms",
     description:
       "Professional digital presence with secure inquiry and client management systems.",
-    price: "₹18,000 – ₹45,000",
+    price: "₹18,000 – ₹45,000+",
     features: [
       "Professional Corporate Website",
       "Client Inquiry Dashboard",
@@ -136,7 +136,7 @@ const WhoWeServe = ({ onSelectService }) => {
     title: "Local Service Providers",
     description:
       "Lead-generating websites for gyms, interior designers, event planners, and other service businesses.",
-    price: "₹15,000 – ₹40,000",
+    price: "₹15,000 – ₹40,000+",
     features: [
       "Service Showcase Website",
       "Lead Capture Funnel",
